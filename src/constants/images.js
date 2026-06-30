@@ -1,0 +1,24 @@
+export const IMAGES = {
+  hero:
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600",
+  about:
+    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&h=600",
+  erp:
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=450",
+  defect:
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=450",
+  plc:
+    "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&h=450",
+  warehouse:
+    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=450",
+  crm:
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=450",
+  machine:
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=450",
+  plan:
+    "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=600&h=450",
+  data:
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=450",
+  image:
+    "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=450",
+};
