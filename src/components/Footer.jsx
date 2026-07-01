@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FOOTER_LINKS } from "../data/footerLinks.js";
 
 export default function Footer() {
@@ -22,7 +23,7 @@ export default function Footer() {
               <ul>
                 {links.map((link) => (
                   <li key={link}>
-                    <a href="#">{link}</a>
+                    <Link to={link === "About" ? "/about" : link === "Contact" ? "/contact" : "#"}>{link}</Link>
                   </li>
                 ))}
               </ul>

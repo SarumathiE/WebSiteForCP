@@ -31,10 +31,9 @@
 
 /* ── HERO ── */
 .about-hero {
-
   display: flex;
   align-items: center;
-  padding: 100px 2rem 30px;
+  padding: 80px 2rem 30px;
   position: relative;
   overflow: hidden;
   background: var(--bg-dark);
@@ -93,7 +92,6 @@
 }
 
 .about-hero-content h1 {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(2.4rem, 4.5vw, 3.8rem);
   font-weight: 700;
   line-height: 1.1;
@@ -200,6 +198,80 @@
   pointer-events: none;
 }
 
+
+/* ── HERO VISUAL ── */
+.about-hero-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 380px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+/* Animated Orbs - Reduced Size */
+.about-hero-orb {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%);
+  animation: orbFloat 8s ease-in-out infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about-hero-orb-2 {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6,182,212,0.04) 0%, transparent 70%);
+  animation: orbFloat 10s ease-in-out infinite reverse;
+  top: 15%;
+  right: 5%;
+}
+
+.about-hero-orb-3 {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.04) 0%, transparent 70%);
+  animation: orbFloat 6s ease-in-out infinite;
+  bottom: 10%;
+  left: 5%;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(15px, -15px) scale(1.05); }
+  66% { transform: translate(-10px, 10px) scale(0.95); }
+}
+
+/* ── TECH ILLUSTRATION ── */
+.about-hero-illustration {
+  position: relative;
+  z-index: 1;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+}
+
+.about-hero-illustration svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 40px rgba(124,58,237,0.05));
+  animation: floatTech 6s ease-in-out infinite;
+}
+
+@keyframes floatTech {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.01); }
+}
 /* ── STATS BAR ── */
 .about-stats-bar {
   display: grid;
@@ -218,7 +290,6 @@
 
 .about-stat-item .stat-number {
   display: block;
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   color: var(--primary-light);
@@ -272,7 +343,6 @@
 }
 
 .building-overlay h2 {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 700;
   color: #fff;
@@ -327,7 +397,6 @@
 }
 
 .pillar-card h3 {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -394,7 +463,6 @@
 }
 
 .journey-year {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--primary-light);
@@ -428,7 +496,6 @@
 .journey-item:nth-child(even) .journey-content { margin-left: auto; }
 
 .journey-content h4 {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.3rem;
@@ -498,7 +565,6 @@
 }
 
 .team-info h4 {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.2rem;
@@ -580,7 +646,6 @@
 }
 
 .tech-card h4 {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 0.4rem;
@@ -635,7 +700,6 @@
 }
 
 .tech-showcase-text h3 {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
@@ -722,7 +786,6 @@
 }
 
 .conclusion-card h2 {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 700;
   color: #fff;

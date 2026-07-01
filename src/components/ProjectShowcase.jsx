@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PROJECT_SHOWCASE } from "../data/projectShowcase.js";
 
 export default function ProjectShowcase() {
@@ -10,7 +11,7 @@ export default function ProjectShowcase() {
             <h2 className="section-title">Our Projects Showcase</h2>
             <p className="section-sub">Explore our diverse portfolio of automation and technology solutions.</p>
           </div>
-          <a href="#" className="showcase-archive">View All Projects ↗</a>
+          <Link to="/projects" className="showcase-archive">View All Projects ↗</Link>
         </div>
         <div className="showcase-grid">
           {PROJECT_SHOWCASE.map((s) => (

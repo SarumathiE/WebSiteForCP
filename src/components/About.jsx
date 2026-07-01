@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PRIMARY_LIGHT } from "../styles/theme.js";
 import { IMAGES } from "../utils/images.js";
 

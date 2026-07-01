@@ -1,190 +1,186 @@
+import { useEffect } from "react";
 import { PRIMARY_LIGHT } from "../styles/theme.js";
 import { IMAGES } from "../utils/images.js";
 import "../components/About.css";
 
 export default function AboutPage() {
+  useEffect(() => {
+    document.querySelector('.about-hero-content')?.classList.add('page-loaded');
+  }, []);
+
   return (
-    <>      {/* ── HERO SECTION ── */}
-      <section className="careers-hero">
-        <div className="careers-hero-bg"></div>
-        <div className="careers-hero-inner">
-          <div className="careers-hero-content">
-            <div className="careers-hero-badge">
-              <span className="careers-hero-dot" />
-              We're Hiring
+    <>
+            {/* ── HERO SECTION ── */}
+      <section className="about-hero">
+        <div className="about-hero-bg-glow"></div>
+        <div className="about-hero-inner">
+          <div className="about-hero-content">
+            <div className="about-badge">
+              <span className="about-badge-dot" />
+              About CodePage
             </div>
-            <h1>
+            <h1 className="about-hero-title">
               About Us <span>Revolution</span>
             </h1>
-            <p className="careers-hero-desc">
+            <p className="about-hero-desc typewriter">
               Build the future of automation with a team that's redefining what's 
               possible. Your next big opportunity starts here.
             </p>
-            <div className="careers-hero-actions">
-              <a href="#openings" className="btn-primary-careers">
-                <span>Explore Roles</span>
+            <div className="about-hero-actions">
+              <a href="#journey" className="btn-primary-hero">
+                <span>Explore Our Work</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </a>
-              <a href="#culture" className="btn-ghost-careers">Our Culture</a>
-            </div>
-            <div className="careers-hero-trust">
-              <span>Trusted by</span>
-              <div className="careers-hero-logos">
-                <span>NovaCorp</span>
-                <span>Synthetica</span>
-                <span>OrbitSys</span>
-                <span>DataMesh</span>
-              </div>
             </div>
           </div>
-          <div className="careers-hero-visual">
-            {/* Animated Orbs */}
-            <div className="careers-hero-orb"></div>
-            <div className="careers-hero-orb-2"></div>
-            <div className="careers-hero-orb-3"></div>
+          <div className="about-hero-visual">
+            {/* Animated Orbs - Reduced */}
+            <div className="about-hero-orb"></div>
+            <div className="about-hero-orb-2"></div>
+            <div className="about-hero-orb-3"></div>
 
-            {/* Animated Tech/Computer with Logos - Full Size */}
-            <div className="careers-hero-illustration">
-              <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Orbital rings */}
-                <ellipse cx="300" cy="300" rx="270" ry="100" stroke="#7C3AED" strokeOpacity="0.06" strokeWidth="1.5" transform="rotate(-30 300 300)"/>
-                <ellipse cx="300" cy="300" rx="270" ry="100" stroke="#7C3AED" strokeOpacity="0.06" strokeWidth="1.5" transform="rotate(30 300 300)"/>
-                <ellipse cx="300" cy="300" rx="270" ry="100" stroke="#7C3AED" strokeOpacity="0.04" strokeWidth="1.5" transform="rotate(90 300 300)"/>
+            {/* Animated Tech/Computer with Logos - Reduced Size */}
+            <div className="about-hero-illustration">
+              <svg viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Orbital rings - Smaller */}
+                <ellipse cx="225" cy="225" rx="200" ry="75" stroke="#7C3AED" strokeOpacity="0.06" strokeWidth="1.5" transform="rotate(-30 225 225)"/>
+                <ellipse cx="225" cy="225" rx="200" ry="75" stroke="#7C3AED" strokeOpacity="0.06" strokeWidth="1.5" transform="rotate(30 225 225)"/>
+                <ellipse cx="225" cy="225" rx="200" ry="75" stroke="#7C3AED" strokeOpacity="0.04" strokeWidth="1.5" transform="rotate(90 225 225)"/>
                 
-                {/* Laptop/Computer Screen - Bigger */}
-                <rect x="180" y="150" width="240" height="180" rx="14" stroke="#7C3AED" strokeWidth="3" fill="rgba(124,58,237,0.04)"/>
+                {/* Laptop/Computer Screen - Smaller */}
+                <rect x="135" y="115" width="180" height="135" rx="12" stroke="#7C3AED" strokeWidth="2.5" fill="rgba(124,58,237,0.04)"/>
                 
                 {/* Screen glow */}
-                <rect x="195" y="165" width="210" height="140" rx="8" fill="#7C3AED" fillOpacity="0.04"/>
+                <rect x="148" y="128" width="154" height="105" rx="6" fill="#7C3AED" fillOpacity="0.04"/>
                 
                 {/* Screen lines - code/data */}
-                <line x1="210" y1="185" x2="310" y2="185" stroke="#7C3AED" strokeOpacity="0.25" strokeWidth="2.5"/>
-                <line x1="210" y1="210" x2="370" y2="210" stroke="#7C3AED" strokeOpacity="0.18" strokeWidth="2.5"/>
-                <line x1="210" y1="235" x2="290" y2="235" stroke="#7C3AED" strokeOpacity="0.22" strokeWidth="2.5"/>
-                <line x1="210" y1="260" x2="340" y2="260" stroke="#7C3AED" strokeOpacity="0.15" strokeWidth="2.5"/>
-                <line x1="210" y1="285" x2="270" y2="285" stroke="#7C3AED" strokeOpacity="0.2" strokeWidth="2.5"/>
+                <line x1="160" y1="145" x2="235" y2="145" stroke="#7C3AED" strokeOpacity="0.25" strokeWidth="2"/>
+                <line x1="160" y1="162" x2="280" y2="162" stroke="#7C3AED" strokeOpacity="0.18" strokeWidth="2"/>
+                <line x1="160" y1="179" x2="220" y2="179" stroke="#7C3AED" strokeOpacity="0.22" strokeWidth="2"/>
+                <line x1="160" y1="196" x2="255" y2="196" stroke="#7C3AED" strokeOpacity="0.15" strokeWidth="2"/>
+                <line x1="160" y1="213" x2="205" y2="213" stroke="#7C3AED" strokeOpacity="0.2" strokeWidth="2"/>
                 
-                {/* Cursor blink */}
-                <rect x="310" y="285" width="4" height="18" fill="#7C3AED" fillOpacity="0.6">
+                {/* Cursor blink - Smaller */}
+                <rect x="235" y="213" width="3" height="14" fill="#7C3AED" fillOpacity="0.6">
                   <animate attributeName="opacity" values="1;0;1" dur="1.5s" repeatCount="indefinite"/>
                 </rect>
                 
                 {/* Code brackets on screen */}
-                <text x="210" y="180" fill="#7C3AED" opacity="0.3" fontSize="11" fontFamily="monospace">{'<'}</text>
-                <text x="395" y="180" fill="#7C3AED" opacity="0.3" fontSize="11" fontFamily="monospace">{'>'}</text>
+                <text x="160" y="141" fill="#7C3AED" opacity="0.3" fontSize="9" fontFamily="monospace">{'<'}</text>
+                <text x="297" y="141" fill="#7C3AED" opacity="0.3" fontSize="9" fontFamily="monospace">{'>'}</text>
                 
-                {/* Laptop base/keyboard - Bigger */}
-                <rect x="200" y="330" width="200" height="14" rx="4" stroke="#7C3AED" strokeWidth="2.5" fill="rgba(124,58,237,0.02)"/>
+                {/* Laptop base/keyboard - Smaller */}
+                <rect x="150" y="250" width="150" height="10" rx="3" stroke="#7C3AED" strokeWidth="2" fill="rgba(124,58,237,0.02)"/>
                 
-                {/* Keyboard keys */}
+                {/* Keyboard keys - Smaller */}
                 {[
-                  220, 233, 246, 259, 272, 285, 298, 311, 324, 337, 350, 363
+                  165, 175, 185, 195, 205, 215, 225, 235, 245, 255, 265, 275
                 ].map((x, i) => (
-                  <rect key={i} x={x} y="332" width="9" height="7" rx="1.5" fill="#7C3AED" fillOpacity="0.12"/>
+                  <rect key={i} x={x} y="252" width="7" height="5" rx="1" fill="#7C3AED" fillOpacity="0.12"/>
                 ))}
                 
-                {/* ── ANIMATED LOGOS SURROUNDING COMPUTER ── */}
+                {/* ── ANIMATED LOGOS SURROUNDING COMPUTER (Reduced Size) ── */}
                 
                 {/* Logo 1 - Top Left - NovaCorp */}
                 <g>
-                  <circle cx="130" cy="180" r="40" fill="rgba(124,58,237,0.06)" stroke="#7C3AED" strokeWidth="2" strokeOpacity="0.2"/>
-                  <text x="105" y="188" fill="#7C3AED" opacity="0.7" fontSize="13" fontWeight="700" fontFamily="sans-serif">NovaCorp</text>
-                  <circle cx="130" cy="180" r="5" fill="#7C3AED" fillOpacity="0.3">
-                    <animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite"/>
+                  <circle cx="100" cy="140" r="30" fill="rgba(124,58,237,0.06)" stroke="#7C3AED" strokeWidth="1.5" strokeOpacity="0.2"/>
+                  <text x="82" y="146" fill="#7C3AED" opacity="0.7" fontSize="10" fontWeight="700" fontFamily="sans-serif">NovaCorp</text>
+                  <circle cx="100" cy="140" r="4" fill="#7C3AED" fillOpacity="0.3">
+                    <animate attributeName="r" values="3;6;3" dur="2s" repeatCount="indefinite"/>
                     <animate attributeName="fill-opacity" values="0.2;0.5;0.2" dur="2s" repeatCount="indefinite"/>
                   </circle>
                 </g>
                 
                 {/* Logo 2 - Top Right - Synthetica */}
                 <g>
-                  <circle cx="470" cy="180" r="40" fill="rgba(6,182,212,0.06)" stroke="#06B6D4" strokeWidth="2" strokeOpacity="0.2"/>
-                  <text x="438" y="188" fill="#06B6D4" opacity="0.7" fontSize="12" fontWeight="700" fontFamily="sans-serif">Synthetica</text>
-                  <circle cx="470" cy="180" r="5" fill="#06B6D4" fillOpacity="0.3">
-                    <animate attributeName="r" values="4;8;4" dur="2.5s" repeatCount="indefinite"/>
+                  <circle cx="350" cy="140" r="30" fill="rgba(6,182,212,0.06)" stroke="#06B6D4" strokeWidth="1.5" strokeOpacity="0.2"/>
+                  <text x="329" y="146" fill="#06B6D4" opacity="0.7" fontSize="9" fontWeight="700" fontFamily="sans-serif">Synthetica</text>
+                  <circle cx="350" cy="140" r="4" fill="#06B6D4" fillOpacity="0.3">
+                    <animate attributeName="r" values="3;6;3" dur="2.5s" repeatCount="indefinite"/>
                     <animate attributeName="fill-opacity" values="0.2;0.5;0.2" dur="2.5s" repeatCount="indefinite"/>
                   </circle>
                 </g>
                 
                 {/* Logo 3 - Left Middle - OrbitSys */}
                 <g>
-                  <circle cx="110" cy="310" r="36" fill="rgba(124,58,237,0.05)" stroke="#7C3AED" strokeWidth="2" strokeOpacity="0.15"/>
-                  <text x="88" y="315" fill="#7C3AED" opacity="0.6" fontSize="11" fontWeight="700" fontFamily="sans-serif">OrbitSys</text>
-                  <circle cx="110" cy="310" r="4" fill="#7C3AED" fillOpacity="0.25">
-                    <animate attributeName="r" values="3;7;3" dur="3s" repeatCount="indefinite"/>
+                  <circle cx="85" cy="235" r="28" fill="rgba(124,58,237,0.05)" stroke="#7C3AED" strokeWidth="1.5" strokeOpacity="0.15"/>
+                  <text x="68" y="240" fill="#7C3AED" opacity="0.6" fontSize="9" fontWeight="700" fontFamily="sans-serif">OrbitSys</text>
+                  <circle cx="85" cy="235" r="3" fill="#7C3AED" fillOpacity="0.25">
+                    <animate attributeName="r" values="2.5;5;2.5" dur="3s" repeatCount="indefinite"/>
                     <animate attributeName="fill-opacity" values="0.15;0.4;0.15" dur="3s" repeatCount="indefinite"/>
                   </circle>
                 </g>
                 
                 {/* Logo 4 - Right Middle - DataMesh */}
                 <g>
-                  <circle cx="490" cy="310" r="36" fill="rgba(6,182,212,0.05)" stroke="#06B6D4" strokeWidth="2" strokeOpacity="0.15"/>
-                  <text x="465" y="315" fill="#06B6D4" opacity="0.6" fontSize="11" fontWeight="700" fontFamily="sans-serif">DataMesh</text>
-                  <circle cx="490" cy="310" r="4" fill="#06B6D4" fillOpacity="0.25">
-                    <animate attributeName="r" values="3;7;3" dur="3.5s" repeatCount="indefinite"/>
+                  <circle cx="365" cy="235" r="28" fill="rgba(6,182,212,0.05)" stroke="#06B6D4" strokeWidth="1.5" strokeOpacity="0.15"/>
+                  <text x="347" y="240" fill="#06B6D4" opacity="0.6" fontSize="9" fontWeight="700" fontFamily="sans-serif">DataMesh</text>
+                  <circle cx="365" cy="235" r="3" fill="#06B6D4" fillOpacity="0.25">
+                    <animate attributeName="r" values="2.5;5;2.5" dur="3.5s" repeatCount="indefinite"/>
                     <animate attributeName="fill-opacity" values="0.15;0.4;0.15" dur="3.5s" repeatCount="indefinite"/>
                   </circle>
                 </g>
                 
                 {/* Logo 5 - Bottom Left - QuantumIO */}
                 <g>
-                  <circle cx="140" cy="420" r="34" fill="rgba(124,58,237,0.04)" stroke="#7C3AED" strokeWidth="2" strokeOpacity="0.12"/>
-                  <text x="114" y="425" fill="#7C3AED" opacity="0.5" fontSize="10" fontWeight="700" fontFamily="sans-serif">QuantumIO</text>
-                  <circle cx="140" cy="420" r="4" fill="#7C3AED" fillOpacity="0.2">
-                    <animate attributeName="r" values="3;6;3" dur="2.8s" repeatCount="indefinite"/>
+                  <circle cx="110" cy="315" r="26" fill="rgba(124,58,237,0.04)" stroke="#7C3AED" strokeWidth="1.5" strokeOpacity="0.12"/>
+                  <text x="93" y="320" fill="#7C3AED" opacity="0.5" fontSize="8" fontWeight="700" fontFamily="sans-serif">QuantumIO</text>
+                  <circle cx="110" cy="315" r="3" fill="#7C3AED" fillOpacity="0.2">
+                    <animate attributeName="r" values="2.5;5;2.5" dur="2.8s" repeatCount="indefinite"/>
                     <animate attributeName="fill-opacity" values="0.1;0.35;0.1" dur="2.8s" repeatCount="indefinite"/>
                   </circle>
                 </g>
                 
                 {/* Logo 6 - Bottom Right - NeuraLink */}
                 <g>
-                  <circle cx="460" cy="420" r="34" fill="rgba(6,182,212,0.04)" stroke="#06B6D4" strokeWidth="2" strokeOpacity="0.12"/>
-                  <text x="436" y="425" fill="#06B6D4" opacity="0.5" fontSize="10" fontWeight="700" fontFamily="sans-serif">NeuraLink</text>
-                  <circle cx="460" cy="420" r="4" fill="#06B6D4" fillOpacity="0.2">
-                    <animate attributeName="r" values="3;6;3" dur="3.2s" repeatCount="indefinite"/>
+                  <circle cx="340" cy="315" r="26" fill="rgba(6,182,212,0.04)" stroke="#06B6D4" strokeWidth="1.5" strokeOpacity="0.12"/>
+                  <text x="324" y="320" fill="#06B6D4" opacity="0.5" fontSize="8" fontWeight="700" fontFamily="sans-serif">NeuraLink</text>
+                  <circle cx="340" cy="315" r="3" fill="#06B6D4" fillOpacity="0.2">
+                    <animate attributeName="r" values="2.5;5;2.5" dur="3.2s" repeatCount="indefinite"/>
                     <animate attributeName="fill-opacity" values="0.1;0.35;0.1" dur="3.2s" repeatCount="indefinite"/>
                   </circle>
                 </g>
                 
-                {/* Logo 7 - Top Center - CodePage (Main Brand - Bigger) */}
+                {/* Logo 7 - Top Center - CodePage (Main Brand - Smaller) */}
                 <g>
-                  <circle cx="300" cy="70" r="44" fill="rgba(124,58,237,0.08)" stroke="#7C3AED" strokeWidth="2.5" strokeOpacity="0.3"/>
-                  <text x="262" y="78" fill="#7C3AED" opacity="0.8" fontSize="15" fontWeight="800" fontFamily="sans-serif">CodePage</text>
-                  <circle cx="300" cy="70" r="6" fill="#7C3AED" fillOpacity="0.4">
-                    <animate attributeName="r" values="5;10;5" dur="4s" repeatCount="indefinite"/>
+                  <circle cx="225" cy="55" r="34" fill="rgba(124,58,237,0.08)" stroke="#7C3AED" strokeWidth="2" strokeOpacity="0.3"/>
+                  <text x="197" y="62" fill="#7C3AED" opacity="0.8" fontSize="12" fontWeight="800" fontFamily="sans-serif">CodePage</text>
+                  <circle cx="225" cy="55" r="5" fill="#7C3AED" fillOpacity="0.4">
+                    <animate attributeName="r" values="4;8;4" dur="4s" repeatCount="indefinite"/>
                     <animate attributeName="fill-opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite"/>
                   </circle>
                 </g>
                 
-                {/* Connection lines from laptop to logos */}
-                <line x1="180" y1="220" x2="135" y2="200" stroke="#7C3AED" strokeOpacity="0.08" strokeWidth="1.5"/>
-                <line x1="420" y1="220" x2="465" y2="200" stroke="#7C3AED" strokeOpacity="0.08" strokeWidth="1.5"/>
-                <line x1="180" y1="270" x2="120" y2="300" stroke="#7C3AED" strokeOpacity="0.06" strokeWidth="1.5"/>
-                <line x1="420" y1="270" x2="480" y2="300" stroke="#7C3AED" strokeOpacity="0.06" strokeWidth="1.5"/>
-                <line x1="300" y1="150" x2="300" y2="114" stroke="#7C3AED" strokeOpacity="0.1" strokeWidth="1.5"/>
-                <line x1="220" y1="330" x2="150" y2="410" stroke="#7C3AED" strokeOpacity="0.06" strokeWidth="1.5"/>
-                <line x1="380" y1="330" x2="450" y2="410" stroke="#7C3AED" strokeOpacity="0.06" strokeWidth="1.5"/>
+                {/* Connection lines from laptop to logos - Smaller */}
+                <line x1="135" y1="170" x2="105" y2="160" stroke="#7C3AED" strokeOpacity="0.08" strokeWidth="1"/>
+                <line x1="315" y1="170" x2="340" y2="160" stroke="#7C3AED" strokeOpacity="0.08" strokeWidth="1"/>
+                <line x1="135" y1="200" x2="95" y2="225" stroke="#7C3AED" strokeOpacity="0.06" strokeWidth="1"/>
+                <line x1="315" y1="200" x2="355" y2="225" stroke="#7C3AED" strokeOpacity="0.06" strokeWidth="1"/>
+                <line x1="225" y1="115" x2="225" y2="89" stroke="#7C3AED" strokeOpacity="0.1" strokeWidth="1"/>
+                <line x1="165" y1="250" x2="120" y2="305" stroke="#7C3AED" strokeOpacity="0.06" strokeWidth="1"/>
+                <line x1="285" y1="250" x2="330" y2="305" stroke="#7C3AED" strokeOpacity="0.06" strokeWidth="1"/>
                 
                 {/* Animated dots on connection lines */}
-                <circle cx="158" cy="210" r="3" fill="#7C3AED" fillOpacity="0.25">
-                  <animate attributeName="cx" values="158;145;158" dur="3s" repeatCount="indefinite"/>
+                <circle cx="120" cy="165" r="2.5" fill="#7C3AED" fillOpacity="0.25">
+                  <animate attributeName="cx" values="120;110;120" dur="3s" repeatCount="indefinite"/>
                   <animate attributeName="fill-opacity" values="0.1;0.4;0.1" dur="3s" repeatCount="indefinite"/>
                 </circle>
-                <circle cx="442" cy="210" r="3" fill="#06B6D4" fillOpacity="0.25">
-                  <animate attributeName="cx" values="442;455;442" dur="3.5s" repeatCount="indefinite"/>
+                <circle cx="330" cy="165" r="2.5" fill="#06B6D4" fillOpacity="0.25">
+                  <animate attributeName="cx" values="330;340;330" dur="3.5s" repeatCount="indefinite"/>
                   <animate attributeName="fill-opacity" values="0.1;0.4;0.1" dur="3.5s" repeatCount="indefinite"/>
                 </circle>
-                <circle cx="150" cy="285" r="2.5" fill="#7C3AED" fillOpacity="0.2">
-                  <animate attributeName="cx" values="150;135;150" dur="4s" repeatCount="indefinite"/>
+                <circle cx="115" cy="212" r="2" fill="#7C3AED" fillOpacity="0.2">
+                  <animate attributeName="cx" values="115;100;115" dur="4s" repeatCount="indefinite"/>
                   <animate attributeName="fill-opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite"/>
                 </circle>
-                <circle cx="450" cy="285" r="2.5" fill="#06B6D4" fillOpacity="0.2">
-                  <animate attributeName="cx" values="450;465;450" dur="4.5s" repeatCount="indefinite"/>
+                <circle cx="335" cy="212" r="2" fill="#06B6D4" fillOpacity="0.2">
+                  <animate attributeName="cx" values="335;350;335" dur="4.5s" repeatCount="indefinite"/>
                   <animate attributeName="fill-opacity" values="0.1;0.3;0.1" dur="4.5s" repeatCount="indefinite"/>
                 </circle>
-                <circle cx="300" cy="132" r="3" fill="#7C3AED" fillOpacity="0.25">
-                  <animate attributeName="cy" values="132;122;132" dur="2.5s" repeatCount="indefinite"/>
+                <circle cx="225" cy="102" r="2.5" fill="#7C3AED" fillOpacity="0.25">
+                  <animate attributeName="cy" values="102;94;102" dur="2.5s" repeatCount="indefinite"/>
                   <animate attributeName="fill-opacity" values="0.1;0.4;0.1" dur="2.5s" repeatCount="indefinite"/>
                 </circle>
               </svg>
@@ -193,6 +189,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      
       {/* ── Stats Bar ── */}
       <div className="about-stats-bar">
         <div className="about-stat-item">
@@ -332,7 +329,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-       {/* ── Technologies ── */}
+      {/* ── Technologies ── */}
       <section className="about-technologies">
         <div className="section-inner">
           <div className="section-header-centered animate-fade-in">
@@ -391,8 +388,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-    
     </>
   );
 }

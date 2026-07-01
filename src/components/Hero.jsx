@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { IMAGES } from "../utils/images.js";
 
 export default function Hero() {
@@ -17,10 +18,9 @@ export default function Hero() {
             Pioneering automation solutions through advanced technology integration. We build the infrastructure that defines tomorrow's industrial landscape.
           </p>
           <div className="hero-actions">
-            <a href="#" className="btn-primary">
+            <Link to="/projects" className="btn-primary">
               Explore Projects <span>→</span>
-            </a>
-            <a href="#" className="btn-ghost">Our Methodology</a>
+            </Link>
           </div>
         </div>
         <div className="hero-visual">

@@ -1,6 +1,51 @@
+import { useEffect } from "react";
 import "../components/Careers.css";
 
 export default function Careers() {
+  useEffect(() => {
+    document.querySelector('.careers-hero-content')?.classList.add('page-loaded');
+  }, []);
+
+  // Smooth scroll to CTA section
+  const scrollToCTA = (e) => {
+    e.preventDefault();
+    const element = document.getElementById('careers-cta');
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else {
+      const section = document.querySelector('.careers-cta');
+      if (section) {
+        section.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
+
+  // Smooth scroll to openings section
+  const scrollToOpenings = (e) => {
+    e.preventDefault();
+    const element = document.getElementById('openings');
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else {
+      const section = document.querySelector('.careers-openings');
+      if (section) {
+        section.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
+
   return (
     <>
       {/* ── HERO SECTION ── */}
@@ -12,20 +57,20 @@ export default function Careers() {
               <span className="careers-hero-dot" />
               We're Hiring
             </div>
-            <h1>
+            <h1 className="careers-hero-title">
               Join the <span>Revolution</span>
             </h1>
-            <p className="careers-hero-desc">
+            <p className="careers-hero-desc typewriter">
               Build the future of automation with a team that's redefining what's 
               possible. Your next big opportunity starts here.
             </p>
             <div className="careers-hero-actions">
-              <a href="#openings" className="btn-primary-careers">
+              <button onClick={scrollToOpenings} className="btn-primary-careers">
                 <span>Explore Roles</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
-              </a>
+              </button>
               <a href="#culture" className="btn-ghost-careers">Our Culture</a>
             </div>
             <div className="careers-hero-trust">
@@ -238,12 +283,12 @@ export default function Careers() {
                   <span className="careers-opening-location">📍 {job.location}</span>
                 </div>
                 <p>{job.desc}</p>
-                <a href="#" className="careers-opening-apply">
+                <button onClick={scrollToCTA} className="careers-opening-apply">
                   Apply Now
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                   </svg>
-                </a>
+                </button>
               </div>
             ))}
           </div>
@@ -294,7 +339,7 @@ export default function Careers() {
         </div>
       </section>
 
-           {/* ── PERKS & BENEFITS ── */}
+      {/* ── PERKS & BENEFITS ── */}
       <section className="careers-perks">
         <div className="section-inner">
           <div className="careers-perks-header">
@@ -355,8 +400,8 @@ export default function Careers() {
         </div>
       </section>
 
-           {/* ── CTA ── */}
-      <section className="careers-cta">
+      {/* ── CTA ── */}
+      <section className="careers-cta" id="careers-cta">
         <div className="section-inner">
           <div className="careers-cta-card glass-effect">
             <div className="careers-cta-glow"></div>
@@ -366,7 +411,7 @@ export default function Careers() {
               <h2>Ready to <span>Make an Impact?</span></h2>
               <p>Join us in building the future of automation. Your journey starts here.</p>
               <div className="careers-cta-actions">
-                <a href="#openings" className="btn-glass-primary">View Openings</a>
+                <button onClick={scrollToOpenings} className="btn-glass-primary">View Openings</button>
                 <a href="#" className="btn-glass-secondary">Contact HR</a>
               </div>
             </div>

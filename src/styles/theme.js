@@ -22,7 +22,7 @@ export const DARK_TEXT_MUTED = "#606078";
 export const DARK_BORDER = "#1E1E2E";
 
 export const getStyles = (isDark) => `
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
   *, *::before, *::after { 
     box-sizing: border-box; 
@@ -56,7 +56,7 @@ export const getStyles = (isDark) => `
   body { 
     background: var(--bg-dark); 
     color: var(--text-primary); 
-    font-family: 'Inter', sans-serif; 
+    font-family: 'Poppins', sans-serif;
     transition: background 0.3s ease, color 0.3s ease; 
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -111,7 +111,7 @@ export const getStyles = (isDark) => `
   }
 
   .nav-logo { 
-    font-family: 'Space Grotesk', sans-serif; 
+    font-family: 'Poppins', sans-serif; 
     font-size: 1.2rem; 
     font-weight: 700; 
     color: var(--text-primary); 
@@ -159,8 +159,6 @@ export const getStyles = (isDark) => `
     border-radius: 2px; 
   }
 
-
-  /* Add this new code */
   .hamburger {
     display: none;
     flex-direction: column;
@@ -193,7 +191,6 @@ export const getStyles = (isDark) => `
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
-  /* Mobile Nav */
   .mobile-nav {
     display: none;
     position: fixed;
@@ -211,6 +208,8 @@ export const getStyles = (isDark) => `
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .mobile-nav.open {
@@ -355,9 +354,9 @@ export const getStyles = (isDark) => `
   }
 
   .hero h1 { 
-    font-family: 'Space Grotesk', sans-serif; 
+    font-family: 'Poppins', sans-serif; 
     font-size: clamp(2.4rem, 5vw, 3.6rem); 
-    font-weight: 700; 
+    font-weight: 800; 
     line-height: 1.1; 
     letter-spacing: -0.03em; 
     margin-bottom: 1.25rem; 
@@ -471,7 +470,7 @@ export const getStyles = (isDark) => `
   }
 
   .section-title { 
-    font-family: 'Space Grotesk', sans-serif; 
+    font-family: 'Poppins', sans-serif; 
     font-size: clamp(1.8rem, 3vw, 2.4rem); 
     font-weight: 700; 
     letter-spacing: -0.02em; 
@@ -494,12 +493,9 @@ export const getStyles = (isDark) => `
     margin: 0 auto; 
   }
 
-    /* ── ABOUT PAGE STYLES ── */
-  
-  /* About Hero */
+  /* ── ABOUT PAGE STYLES ── */
   .about-hero {
-
-    padding: 120px 2rem 60px;
+    padding: 100px 2rem 30px;
     position: relative;
     overflow: hidden;
     background: var(--bg-dark);
@@ -555,12 +551,13 @@ export const getStyles = (isDark) => `
   }
 
   .about-hero-content h1 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: clamp(2.8rem, 5vw, 4rem);
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.03em;
     margin-bottom: 1.25rem;
+    color: var(--text-primary);
   }
 
   .about-hero-content h1 span {
@@ -587,7 +584,7 @@ export const getStyles = (isDark) => `
   }
 
   .stat-number {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     color: var(--primary-light);
@@ -635,7 +632,7 @@ export const getStyles = (isDark) => `
 
   .about-experience-badge span {
     display: block;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     line-height: 1;
@@ -648,7 +645,6 @@ export const getStyles = (isDark) => `
     font-weight: 500;
   }
 
-  /* Introduction Section */
   .about-intro {
     padding: 60px 2rem;
     background: var(--bg-card);
@@ -686,7 +682,6 @@ export const getStyles = (isDark) => `
     display: block;
   }
 
-  /* Components Section */
   .about-components {
     padding: 80px 2rem;
     background: var(--bg-dark);
@@ -721,7 +716,7 @@ export const getStyles = (isDark) => `
   }
 
   .component-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
@@ -734,7 +729,21 @@ export const getStyles = (isDark) => `
     margin: 0;
   }
 
-  /* Case Studies */
+  .component-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-light);
+    opacity: 0.4;
+    margin-bottom: 0.25rem;
+  }
+
+  .component-card .component-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
   .about-case-studies {
     padding: 80px 2rem;
     background: var(--bg-card);
@@ -795,7 +804,7 @@ export const getStyles = (isDark) => `
   }
 
   .case-content h3 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -819,7 +828,6 @@ export const getStyles = (isDark) => `
     color: var(--text-muted);
   }
 
-  /* Future Section */
   .about-future {
     padding: 80px 2rem;
     background: var(--bg-dark);
@@ -884,13 +892,12 @@ export const getStyles = (isDark) => `
 
   .future-quote {
     color: #fff;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     font-weight: 500;
     font-style: italic;
   }
 
-  /* Conclusion Section */
   .about-conclusion {
     padding: 60px 2rem;
   }
@@ -929,7 +936,7 @@ export const getStyles = (isDark) => `
   }
 
   .conclusion-card h2 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: clamp(2rem, 3vw, 2.8rem);
     font-weight: 700;
     color: #fff;
@@ -997,6 +1004,25 @@ export const getStyles = (isDark) => `
   .conclusion-actions .btn-outline-white:hover {
     background: rgba(255,255,255,0.2);
     transform: translateY(-3px);
+  }
+
+  .about-importance {
+    padding: 60px 2rem;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .importance-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .importance-content p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    text-align: center;
   }
 
   /* ── ABOUT US ── */
@@ -1067,7 +1093,7 @@ export const getStyles = (isDark) => `
   }
 
   .comm-card h3 { 
-    font-family: 'Space Grotesk', sans-serif; 
+    font-family: 'Poppins', sans-serif; 
     font-size: 1rem; 
     font-weight: 600; 
     color: var(--primary-light); 
@@ -1143,7 +1169,7 @@ export const getStyles = (isDark) => `
   }
 
   .project-card h4 { 
-    font-family: 'Space Grotesk', sans-serif; 
+    font-family: 'Poppins', sans-serif; 
     font-size: 0.95rem; 
     font-weight: 600; 
     margin-bottom: 0.25rem; 
@@ -1250,7 +1276,7 @@ export const getStyles = (isDark) => `
   }
 
   .showcase-body h3 { 
-    font-family: 'Space Grotesk', sans-serif; 
+    font-family: 'Poppins', sans-serif; 
     font-size: 1rem; 
     font-weight: 600; 
     margin-bottom: 0.4rem; 
@@ -1262,7 +1288,7 @@ export const getStyles = (isDark) => `
     line-height: 1.6; 
   }
 
-  /* ── CTA ── */
+  /* ── CTA WITH GLASS EFFECT ── */
   .cta-section { 
     padding: 23px 2rem; 
   }
@@ -1273,61 +1299,97 @@ export const getStyles = (isDark) => `
   }
 
   .cta-card {
-    background: linear-gradient(135deg, #4C1D95 0%, #6D28D9 40%, #7C3AED 100%);
-    border-radius: var(--radius-xl); 
-    padding: 4rem 4rem;
-    text-align: center; 
-    position: relative; 
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: var(--radius-xl);
+    padding: 4rem 3.5rem;
     overflow: hidden;
+    background: rgba(124, 58, 237, 0.06);
+    border: 1px solid rgba(124, 58, 237, 0.12);
+    box-shadow: 
+      0 8px 32px rgba(124, 58, 237, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    text-align: center;
   }
 
-  .cta-card::before {
-    content: ''; 
-    position: absolute; 
-    top: -80px; 
+  /* Glass effect with purple tint */
+  .glass-effect {
+    background: rgba(124, 58, 237, 0.06);
+    border: 1px solid rgba(124, 58, 237, 0.12);
+    box-shadow: 
+      0 8px 32px rgba(124, 58, 237, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .cta-glow {
+    position: absolute;
+    top: -80px;
     right: -80px;
-    width: 320px; 
-    height: 320px;
-    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
     border-radius: 50%;
+    pointer-events: none;
+    animation: ctaGlow 6s ease-in-out infinite;
   }
 
-  .cta-card::after {
-    content: ''; 
-    position: absolute; 
-    bottom: -60px; 
-    left: -60px;
-    width: 240px; 
-    height: 240px;
-    background: radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%);
+  .cta-glow-2 {
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
     border-radius: 50%;
+    pointer-events: none;
+    animation: ctaGlow 8s ease-in-out infinite reverse;
+  }
+
+  @keyframes ctaGlow {
+    0%, 100% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.1) translate(20px, -20px); }
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 2;
   }
 
   .cta-eyebrow { 
+    display: inline-block;
     font-size: 0.75rem; 
     font-weight: 700; 
     letter-spacing: 0.1em; 
     text-transform: uppercase; 
-    color: rgba(255,255,255,0.6); 
+    color: rgba(124, 58, 237, 0.8);
+    background: rgba(124, 58, 237, 0.12);
+    padding: 0.3rem 1.2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(124, 58, 237, 0.15);
     margin-bottom: 1rem; 
     position: relative;
     z-index: 1;
   }
 
-  .cta-card h2 { 
-    font-family: 'Space Grotesk', sans-serif; 
+  .cta-content h2 { 
+    font-family: 'Poppins', sans-serif; 
     font-size: clamp(1.8rem, 3vw, 2.4rem); 
     font-weight: 700; 
-    color: #fff; 
+    color: var(--text-primary); 
     margin-bottom: 1rem; 
     letter-spacing: -0.02em; 
     position: relative;
     z-index: 1;
   }
 
-  .cta-card p { 
+  .cta-content p { 
     font-size: 1rem; 
-    color: rgba(255,255,255,0.7); 
+    color: var(--text-secondary); 
     max-width: 480px; 
     margin: 0 auto 2rem; 
     line-height: 1.7; 
@@ -1344,46 +1406,26 @@ export const getStyles = (isDark) => `
     z-index: 1; 
   }
 
-  .btn-white {
-    display: inline-flex; 
-    align-items: center; 
+  .btn-glass-primary {
+    display: inline-flex;
+    align-items: center;
     gap: 0.5rem;
-    background: #fff; 
-    color: var(--primary-dark); 
-    border: none; 
-    cursor: pointer;
-    padding: 0.8rem 1.8rem; 
-    border-radius: 10px; 
-    font-size: 0.95rem; 
-    font-weight: 700;
-    transition: all 0.3s ease; 
-    text-decoration: none;
-  }
-
-  .btn-white:hover { 
-    transform: translateY(-2px); 
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25); 
-  }
-
-  .btn-outline-white {
-    display: inline-flex; 
-    align-items: center; 
-    gap: 0.5rem;
-    background: rgba(255,255,255,0.1); 
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: #fff;
-    border: 1px solid rgba(255,255,255,0.3); 
-    cursor: pointer;
-    padding: 0.8rem 1.8rem; 
-    border-radius: 10px; 
-    font-size: 0.95rem; 
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
     font-weight: 600;
-    transition: all 0.3s ease; 
     text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.25);
   }
 
-  .btn-outline-white:hover { 
-    background: rgba(255,255,255,0.2); 
-    transform: translateY(-2px);
+  .btn-glass-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.35);
   }
 
   /* ── FOOTER ── */
@@ -1414,7 +1456,7 @@ export const getStyles = (isDark) => `
   }
 
   .footer-logo {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 1.2rem;
     color: var(--text-primary);
@@ -1444,7 +1486,7 @@ export const getStyles = (isDark) => `
   }
 
   .footer-col h4 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 1rem;
@@ -1496,20 +1538,6 @@ export const getStyles = (isDark) => `
     transition: color 0.3s ease;
   }
 
-    /* Mobile nav backdrop */
-  .mobile-nav {
-    background: var(--bg-dark);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-
-  /* Fix for mobile nav scrolling */
-  @media (max-width: 900px) {
-    body.no-scroll {
-      overflow: hidden;
-    }
-  }
-
   .footer-legal a:hover {
     color: var(--text-secondary);
   }
@@ -1542,7 +1570,7 @@ export const getStyles = (isDark) => `
   }
 
   .page-hero h1 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
     line-height: 1.1;
@@ -1596,7 +1624,7 @@ export const getStyles = (isDark) => `
   }
 
   .career-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -1668,7 +1696,7 @@ export const getStyles = (isDark) => `
   }
 
   .contact-item h4 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.2rem;
@@ -1687,7 +1715,7 @@ export const getStyles = (isDark) => `
   }
 
   .contact-form h3 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -1702,7 +1730,7 @@ export const getStyles = (isDark) => `
     border: 1px solid var(--border);
     border-radius: 8px;
     color: var(--text-primary);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     transition: border-color 0.3s ease;
   }
@@ -1722,17 +1750,49 @@ export const getStyles = (isDark) => `
     width: 100%;
     justify-content: center;
   }
-        /* Page Responsive */
+
   @media (max-width: 1024px) {
+    .case-grid { grid-template-columns: 1fr 1fr; }
     .careers-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 900px) {
+    .about-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .future-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-stats { gap: 2rem; }
+    .about-experience-badge { bottom: -15px; right: -10px; padding: 1rem 1.25rem; }
+    .about-experience-badge span { font-size: 1.5rem; }
+    .components-grid { grid-template-columns: 1fr 1fr; }
+    .case-grid { grid-template-columns: 1fr 1fr; }
     .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
     .page-hero { padding: 100px 1.5rem 50px; }
   }
 
+  @media (max-width: 768px) {
+    .case-grid { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 600px) {
+    .about-hero { padding: 80px 1rem 40px; }
+    .about-hero-content h1 { font-size: 2rem; }
+    .about-stats { flex-direction: column; gap: 1rem; }
+    .stat-number { font-size: 1.5rem; }
+    .components-grid { grid-template-columns: 1fr; }
+    .about-experience-badge { bottom: -10px; right: 10px; padding: 0.8rem 1rem; }
+    .about-experience-badge span { font-size: 1.2rem; }
+    .about-experience-badge p { font-size: 0.6rem; }
+    .conclusion-card { padding: 2rem 1.25rem; }
+    .conclusion-card h2 { font-size: 1.5rem; }
+    .conclusion-card p { font-size: 0.9rem; }
+    .conclusion-actions { flex-direction: column; align-items: center; }
+    .future-quote { font-size: 1rem; }
+    .case-content { padding: 1.25rem; }
+    .case-content h3 { font-size: 1rem; }
+    .case-meta span { font-size: 0.75rem; }
+    .about-importance { padding: 40px 1rem; }
+    .importance-content p { font-size: 0.95rem; }
+    .component-number { font-size: 1.2rem; }
     .careers-grid { grid-template-columns: 1fr; }
     .contact-form { padding: 1.5rem; }
     .page-hero { padding: 80px 1rem 40px; }
@@ -1741,6 +1801,18 @@ export const getStyles = (isDark) => `
   }
 
   @media (max-width: 480px) {
+    .about-hero { padding: 60px 0.8rem 30px; }
+    .about-hero-content h1 { font-size: 1.6rem; }
+    .about-hero-content p { font-size: 0.85rem; }
+    .about-badge { font-size: 0.6rem; padding: 0.2rem 0.6rem; }
+    .component-card { padding: 1.5rem; }
+    .component-card h3 { font-size: 1rem; }
+    .future-tags span { font-size: 0.65rem; padding: 0.2rem 0.6rem; }
+    .conclusion-card h2 { font-size: 1.2rem; }
+    .conclusion-card p { font-size: 0.8rem; }
+    .conclusion-actions .btn-white,
+    .conclusion-actions .btn-outline-white { padding: 0.6rem 1.2rem; font-size: 0.8rem; }
+    .case-tag { font-size: 0.6rem; padding: 0.15rem 0.6rem; }
     .page-hero { padding: 70px 0.8rem 30px; }
     .page-hero h1 { font-size: 1.6rem; }
     .career-card { padding: 1.5rem; }
@@ -1750,289 +1822,7 @@ export const getStyles = (isDark) => `
     .contact-icon { width: 40px; height: 40px; font-size: 1.2rem; }
   }
 
-  @media (max-width: 600px) {
-    .careers-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-form {
-      padding: 1.5rem;
-    }
-
-    .page-hero {
-      padding: 80px 1rem 40px;
-    }
-
-    .page-hero h1 {
-      font-size: 2rem;
-    }
-
-    .page-hero p {
-      font-size: 0.95rem;
-    }
-  }
-
-    /* ── IMPORTANCE SECTION ── */
-  .about-importance {
-    padding: 60px 2rem;
-    background: var(--bg-card);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .importance-content {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .importance-content p {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    text-align: center;
-  }
-
-  /* ── COMPONENT NUMBER STYLES ── */
-  .component-number {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-light);
-    opacity: 0.4;
-    margin-bottom: 0.25rem;
-  }
-
-  .component-card .component-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-
-
-    @media (max-width: 600px) {
-    .about-importance {
-      padding: 40px 1rem;
-    }
-    
-    .importance-content p {
-      font-size: 0.95rem;
-    }
-    
-    .component-number {
-      font-size: 1.2rem;
-    }
-  }
-
-
-
-  @media (max-width: 480px) {
-    .page-hero {
-      padding: 70px 0.8rem 30px;
-    }
-
-    .page-hero h1 {
-      font-size: 1.6rem;
-    }
-
-    .career-card {
-      padding: 1.5rem;
-    }
-
-    .contact-form {
-      padding: 1rem;
-    }
-
-    .contact-form h3 {
-      font-size: 1.1rem;
-    }
-
-    .contact-item {
-      gap: 0.8rem;
-    }
-
-    .contact-icon {
-      width: 40px;
-      height: 40px;
-      font-size: 1.2rem;
-    }
-  }
-
   /* ── RESPONSIVE ── */
-
-    /* About Page Responsive */
-  @media (max-width: 1024px) {
-    .case-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: 900px) {
-    .about-hero-inner {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-
-    .intro-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .future-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .about-stats {
-      gap: 2rem;
-    }
-
-    .about-experience-badge {
-      bottom: -15px;
-      right: -10px;
-      padding: 1rem 1.25rem;
-    }
-
-    .about-experience-badge span {
-      font-size: 1.5rem;
-    }
-
-    .components-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .case-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .case-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .about-hero {
-      padding: 80px 1rem 40px;
-    }
-
-    .about-hero-content h1 {
-      font-size: 2rem;
-    }
-
-    .about-stats {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .stat-number {
-      font-size: 1.5rem;
-    }
-
-    .components-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .about-experience-badge {
-      bottom: -10px;
-      right: 10px;
-      padding: 0.8rem 1rem;
-    }
-
-    .about-experience-badge span {
-      font-size: 1.2rem;
-    }
-
-    .about-experience-badge p {
-      font-size: 0.6rem;
-    }
-
-    .conclusion-card {
-      padding: 2rem 1.25rem;
-    }
-
-    .conclusion-card h2 {
-      font-size: 1.5rem;
-    }
-
-    .conclusion-card p {
-      font-size: 0.9rem;
-    }
-
-    .conclusion-actions {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .future-quote {
-      font-size: 1rem;
-    }
-
-    .case-content {
-      padding: 1.25rem;
-    }
-
-    .case-content h3 {
-      font-size: 1rem;
-    }
-
-    .case-meta span {
-      font-size: 0.75rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .about-hero {
-      padding: 60px 0.8rem 30px;
-    }
-
-    .about-hero-content h1 {
-      font-size: 1.6rem;
-    }
-
-    .about-hero-content p {
-      font-size: 0.85rem;
-    }
-
-    .about-badge {
-      font-size: 0.6rem;
-      padding: 0.2rem 0.6rem;
-    }
-
-    .component-card {
-      padding: 1.5rem;
-    }
-
-    .component-card h3 {
-      font-size: 1rem;
-    }
-
-    .future-tags span {
-      font-size: 0.65rem;
-      padding: 0.2rem 0.6rem;
-    }
-
-    .conclusion-card h2 {
-      font-size: 1.2rem;
-    }
-
-    .conclusion-card p {
-      font-size: 0.8rem;
-    }
-
-    .conclusion-actions .btn-white,
-    .conclusion-actions .btn-outline-white {
-      padding: 0.6rem 1.2rem;
-      font-size: 0.8rem;
-    }
-
-    .case-tag {
-      font-size: 0.6rem;
-      padding: 0.15rem 0.6rem;
-    }
-  }
-
-
   @media (max-width: 1024px) {
     .showcase-grid { grid-template-columns: repeat(2, 1fr); }
     .comm-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2158,4 +1948,3 @@ export const getStyles = (isDark) => `
     .showcase-archive { font-size: 0.7rem; }
   }
 `;
-
