@@ -1822,10 +1822,119 @@ export const getStyles = (isDark) => `
     .contact-icon { width: 40px; height: 40px; font-size: 1.2rem; }
   }
 
-  /* ── RESPONSIVE ── */
+  /*   /* ── RESPONSIVE ── */
+  
+  /* Large Screens (TV / 4K) */
+  @media (min-width: 1921px) {
+    .hero-inner, .section-inner, .nav-inner, .footer-inner {
+      max-width: 1600px;
+    }
+    .hero h1 {
+      font-size: 4.5rem;
+    }
+    .hero-desc {
+      font-size: 1.3rem;
+      max-width: 600px;
+    }
+    .section-title {
+      font-size: 3rem;
+    }
+    .section-sub {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+    .about-hero-content h1 {
+      font-size: 4.5rem;
+    }
+    .about-stats {
+      gap: 4rem;
+    }
+    .stat-number {
+      font-size: 2.8rem;
+    }
+    .projects-hero-content h1 {
+      font-size: 4.5rem;
+    }
+    .projects-stat-number {
+      font-size: 3rem;
+    }
+    .careers-hero-content h1 {
+      font-size: 4.5rem;
+    }
+    .contact-hero-content h1 {
+      font-size: 4.5rem;
+    }
+    .cta-card {
+      padding: 5rem 6rem;
+    }
+    .cta-card h2 {
+      font-size: 3rem;
+    }
+    .comm-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .showcase-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .projects-grid-all {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .projects-featured-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .team-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .careers-why-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .careers-perks-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 1440px) {
+    .hero-inner, .section-inner, .nav-inner, .footer-inner {
+      max-width: 1200px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .hero-inner, .section-inner, .nav-inner, .footer-inner {
+      max-width: 1100px;
+      padding: 0 1.5rem;
+    }
+    .showcase-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .comm-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .projects-grid-all {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
   @media (max-width: 1024px) {
     .showcase-grid { grid-template-columns: repeat(2, 1fr); }
     .comm-grid { grid-template-columns: repeat(2, 1fr); }
+    .projects-featured-grid { grid-template-columns: repeat(2, 1fr); }
+    .projects-grid-all { grid-template-columns: repeat(2, 1fr); }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .pillars-grid { grid-template-columns: 1fr 1fr; }
+    .tech-grid { grid-template-columns: repeat(2, 1fr); }
+    .careers-why-grid { grid-template-columns: 1fr 1fr; }
+    .careers-perks-grid { grid-template-columns: 1fr 1fr; }
+    .careers-openings-grid { grid-template-columns: 1fr 1fr; }
+    .careers-process-flow { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
   }
 
   @media (max-width: 900px) {
@@ -1860,6 +1969,30 @@ export const getStyles = (isDark) => `
     .about-image { aspect-ratio: 16/9; }
     .section { padding: 23px 1.5rem; }
     .hero { padding: 100px 1.5rem 60px; }
+    .about-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-hero-image { aspect-ratio: 16/9; max-width: 100%; }
+    .about-stats { justify-content: center; }
+    .about-hero-content { text-align: center; max-width: 100%; }
+    .contact-hero-inner { grid-template-columns: 1fr; text-align: center; }
+    .contact-hero-content { max-width: 100%; }
+    .contact-hero-actions { justify-content: center; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .careers-hero-inner { grid-template-columns: 1fr; text-align: center; }
+    .careers-hero-content { max-width: 100%; }
+    .careers-hero-actions { justify-content: center; }
+    .careers-hero-visual { min-height: 300px; }
+    .careers-hero-illustration { width: 250px; height: 250px; }
+    .projects-hero-inner { grid-template-columns: 1fr; text-align: center; }
+    .projects-hero-content { max-width: 100%; }
+    .projects-hero-stats { justify-content: center; }
+    .projects-hero-illustration { width: 250px; height: 250px; }
+    .projects-case-grid { grid-template-columns: 1fr; }
+    .projects-industry-grid { grid-template-columns: 1fr 1fr; }
+    .projects-testimonials-grid { grid-template-columns: 1fr; }
+    .tech-showcase { grid-template-columns: 1fr; padding: 1.25rem; }
+    .tech-showcase-item { grid-template-columns: 1fr 1fr; }
+    .future-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
   }
 
   @media (max-width: 768px) {
@@ -1870,6 +2003,25 @@ export const getStyles = (isDark) => `
     .hero { padding: 90px 1.5rem 50px; }
     .section-header-centered { margin-bottom: 1.5rem; }
     .cta-card { padding: 2rem 1.5rem; }
+    .projects-grid-all { grid-template-columns: 1fr 1fr; }
+    .projects-featured-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .tech-grid { grid-template-columns: 1fr 1fr; }
+    .careers-why-grid { grid-template-columns: 1fr; }
+    .careers-perks-grid { grid-template-columns: 1fr; }
+    .careers-openings-grid { grid-template-columns: 1fr; }
+    .careers-process-flow { grid-template-columns: 1fr; }
+    .contact-form-row { grid-template-columns: 1fr; }
+    .contact-cta-card { padding: 2rem 1.5rem; }
+    .careers-hero-illustration { width: 200px; height: 200px; }
+    .projects-hero-illustration { width: 200px; height: 200px; }
+    .projects-stat-number { font-size: 1.8rem; }
+    .careers-float-number { font-size: 1.2rem; }
+    .about-hero-content h1 { font-size: 2.2rem; }
+    .about-hero { padding: 80px 1.5rem 40px; }
+    .conclusion-card { padding: 2rem 1.5rem; }
+    .about-building-banner { height: 320px; }
   }
 
   @media (max-width: 600px) {
@@ -1906,14 +2058,117 @@ export const getStyles = (isDark) => `
     .nav-logo { font-size: 1.1rem; }
     .nav-cta { padding: 0.4rem 1rem; font-size: 0.8rem; }
     .theme-toggle { width: 38px; height: 38px; font-size: 1rem; }
+    .projects-grid-all { grid-template-columns: 1fr; }
+    .projects-featured-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .tech-grid { grid-template-columns: 1fr; }
+    .careers-why-grid { grid-template-columns: 1fr; }
+    .careers-perks-grid { grid-template-columns: 1fr; }
+    .careers-openings-grid { grid-template-columns: 1fr; }
+    .careers-process-flow { grid-template-columns: 1fr; }
+    .careers-hero { padding: 60px 1rem 30px; }
+    .careers-hero-content h1 { font-size: 2rem; }
+    .careers-hero-desc { font-size: 0.9rem; }
+    .careers-hero-actions { flex-direction: column; align-items: center; }
+    .btn-primary-careers, .btn-ghost-careers { width: 100%; justify-content: center; }
+    .careers-hero-trust { flex-direction: column; align-items: center; }
+    .careers-hero-logos { flex-wrap: wrap; justify-content: center; }
+    .careers-hero-stats-float { grid-template-columns: 1fr; gap: 0.5rem; padding: 1rem; }
+    .careers-hero-illustration { width: 150px; height: 150px; }
+    .careers-openings-stats { flex-direction: column; gap: 0.5rem; }
+    .careers-opening-card { padding: 1.25rem; }
+    .careers-perks-item { flex-direction: column; text-align: center; padding: 1.25rem; }
+    .careers-perks-item .careers-perks-icon { margin-bottom: 0.5rem; }
+    .careers-cta-card { padding: 2rem 1.25rem; }
+    .careers-cta-content h2 { font-size: 1.4rem; }
+    .careers-cta-actions { flex-direction: column; align-items: center; }
+    .btn-glass-primary, .btn-glass-secondary { width: 100%; justify-content: center; }
+    .projects-hero { padding: 60px 1rem 30px; }
+    .projects-hero-content h1 { font-size: 2rem; }
+    .projects-hero-desc { font-size: 0.9rem; }
+    .projects-hero-stats { flex-direction: column; gap: 0.5rem; }
+    .projects-stat-number { font-size: 1.5rem; }
+    .projects-hero-illustration { width: 150px; height: 150px; }
+    .projects-grid-card { padding: 1.25rem; }
+    .projects-case-card { padding: 1.5rem; }
+    .projects-industry-card { padding: 1.5rem; }
+    .projects-testimonial { padding: 1.5rem; }
+    .projects-cta-card { padding: 1.5rem 1.25rem; }
+    .projects-cta-actions { flex-direction: column; align-items: center; }
+    .projects-cta-actions .btn-white,
+    .projects-cta-actions .btn-outline-white { width: 100%; justify-content: center; }
+    .contact-hero { padding: 60px 1rem 30px; }
+    .contact-hero-content h1 { font-size: 2rem; }
+    .contact-hero-desc { font-size: 0.9rem; }
+    .contact-hero-actions { flex-direction: column; align-items: center; }
+    .btn-primary-contact, .btn-ghost-contact { width: 100%; justify-content: center; }
+    .contact-form-card { padding: 1.5rem; }
+    .contact-cta-card { padding: 1.5rem 1.25rem; }
+    .contact-cta-actions { flex-direction: column; align-items: center; }
+    .contact-cta-actions .btn-glass-primary,
+    .contact-cta-actions .btn-glass-secondary { width: 100%; justify-content: center; }
+    .contact-info-item { padding: 1rem; }
+    .contact-info-icon { width: 40px; height: 40px; font-size: 1.4rem; }
+    .contact-map-wrapper { height: 220px; }
+    .about-hero { padding: 60px 1rem 30px; }
+    .about-hero-content h1 { font-size: 1.8rem; }
+    .about-hero-content p { font-size: 0.9rem; }
+    .about-stats { flex-direction: column; gap: 1rem; align-items: center; }
+    .stat-number { font-size: 1.5rem; }
+    .about-stat-item { padding: 1rem 0.8rem; }
+    .about-stat-item .stat-number { font-size: 1.4rem; }
+    .about-building-banner { height: 260px; }
+    .building-overlay h2 { font-size: 1.3rem; }
+    .building-overlay p { font-size: 0.8rem; }
+    .pillar-card { padding: 1.25rem 1rem; }
+    .journey-content { padding: 0.8rem 1rem; }
+    .journey-item { margin-bottom: 1.2rem; padding-left: 40px; }
+    .team-card .team-info { padding: 0.8rem; }
+    .conclusion-card { padding: 1.5rem 1rem; }
+    .conclusion-card h2 { font-size: 1.3rem; }
+    .conclusion-card p { font-size: 0.8rem; }
+    .conclusion-actions { flex-direction: column; align-items: center; }
+    .conclusion-actions .btn-white,
+    .conclusion-actions .btn-outline-white { width: 100%; justify-content: center; padding: 0.5rem 1.2rem; font-size: 0.8rem; }
+    .tech-card { padding: 1rem 0.8rem; }
+    .tech-card h4 { font-size: 0.8rem; }
+    .tech-card p { font-size: 0.7rem; }
+    .tech-showcase { padding: 0.8rem; }
+    .tech-showcase-item { grid-template-columns: 1fr; }
+    .tech-showcase-text h3 { font-size: 1.1rem; }
+    .tech-showcase-text p { font-size: 0.8rem; }
+    .tech-showcase-badge { flex-direction: column; align-items: flex-start; }
+    .tech-showcase-badge span { font-size: 0.6rem; padding: 0.25rem 0.7rem; }
+    .btn-white, .btn-outline-white { width: 100%; justify-content: center; padding: 0.6rem 1.2rem; font-size: 0.8rem; }
+    .footer { padding: 1.5rem 1rem; }
+    .footer-top { grid-template-columns: 1fr; gap: 1.5rem; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .footer-legal { flex-wrap: wrap; justify-content: center; }
+    .section-label { font-size: 0.65rem; }
+    .section-sub { font-size: 0.85rem; }
+    .showcase-body { padding: 0.8rem; }
+    .showcase-body h3 { font-size: 0.9rem; }
+    .showcase-body p { font-size: 0.8rem; }
+    .showcase-category { font-size: 0.6rem; }
+    .showcase-year { font-size: 0.6rem; }
+    .comm-card { padding: 1.25rem; }
+    .comm-card h3 { font-size: 0.9rem; }
+    .comm-card ul li { font-size: 0.6rem; padding: 0.15rem 0.4rem; }
+    .project-card { padding: 1rem; }
+    .project-card h4 { font-size: 0.85rem; }
+    .project-card p { font-size: 0.75rem; }
+    .project-icon { font-size: 1.8rem; }
+    .about-image { aspect-ratio: 16/9; }
+    .about-hero-image { aspect-ratio: 16/9; }
+    .showcase-img { aspect-ratio: 16/9; }
   }
 
   @media (max-width: 480px) {
     .showcase-img { aspect-ratio: 4/3; }
-    .showcase-body h3 { font-size: 0.9rem; }
-    .showcase-body p { font-size: 0.78rem; }
-    .showcase-category { font-size: 0.6rem; }
-    .showcase-year { font-size: 0.6rem; }
+    .showcase-body h3 { font-size: 0.85rem; }
+    .showcase-body p { font-size: 0.75rem; }
+    .showcase-category { font-size: 0.55rem; }
+    .showcase-year { font-size: 0.55rem; }
     .hero h1 { font-size: 1.8rem; margin-bottom: 0.8rem; }
     .hero-desc { font-size: 0.85rem; margin-bottom: 1.5rem; }
     .section-title { font-size: 1.4rem; }
@@ -1946,5 +2201,115 @@ export const getStyles = (isDark) => `
     .footer-legal a { font-size: 0.7rem; }
     .footer-location { font-size: 0.75rem; }
     .showcase-archive { font-size: 0.7rem; }
+    .projects-hero-content h1 { font-size: 1.6rem; }
+    .projects-hero-desc { font-size: 0.8rem; }
+    .projects-stat-number { font-size: 1.3rem; }
+    .projects-stat-label { font-size: 0.6rem; }
+    .projects-hero-badge { font-size: 0.55rem; padding: 0.15rem 0.6rem; }
+    .projects-grid-card { padding: 1rem; }
+    .projects-grid-icon { font-size: 2rem; }
+    .projects-grid-card h3 { font-size: 0.85rem; }
+    .projects-grid-card p { font-size: 0.75rem; }
+    .projects-featured-card .projects-featured-body { padding: 0.8rem; }
+    .projects-featured-card h3 { font-size: 0.85rem; }
+    .projects-featured-card p { font-size: 0.75rem; }
+    .projects-featured-tag { font-size: 0.5rem; }
+    .projects-featured-result { font-size: 0.65rem; }
+    .projects-case-card { padding: 1.25rem; }
+    .projects-case-card h3 { font-size: 0.9rem; }
+    .projects-case-card p { font-size: 0.75rem; }
+    .projects-case-number { font-size: 1.8rem; }
+    .projects-case-meta span { font-size: 0.65rem; }
+    .projects-industry-card { padding: 1rem; }
+    .projects-industry-card h3 { font-size: 0.9rem; }
+    .projects-industry-card p { font-size: 0.75rem; }
+    .projects-industry-list li { font-size: 0.7rem; }
+    .projects-testimonial { padding: 1rem; }
+    .projects-testimonial p { font-size: 0.8rem; }
+    .projects-testimonial-author h4 { font-size: 0.85rem; }
+    .projects-testimonial-avatar { width: 40px; height: 40px; font-size: 0.9rem; }
+    .projects-cta-card { padding: 1.25rem 0.8rem; }
+    .projects-cta-card h2 { font-size: 1.2rem; }
+    .projects-cta-card p { font-size: 0.75rem; }
+    .projects-cta-actions .btn-white,
+    .projects-cta-actions .btn-outline-white { padding: 0.5rem 1rem; font-size: 0.75rem; }
+    .careers-hero-content h1 { font-size: 1.5rem; }
+    .careers-hero-desc { font-size: 0.8rem; }
+    .careers-hero-badge { font-size: 0.55rem; padding: 0.15rem 0.6rem; }
+    .btn-primary-careers, .btn-ghost-careers { padding: 0.5rem 1.2rem; font-size: 0.75rem; }
+    .careers-hero-stats-float { padding: 0.8rem; }
+    .careers-float-number { font-size: 0.9rem; }
+    .careers-float-label { font-size: 0.45rem; }
+    .careers-hero-illustration { width: 120px; height: 120px; }
+    .careers-why-header h2 { font-size: 1.3rem; }
+    .careers-why-card { padding: 1rem; }
+    .careers-why-card h3 { font-size: 0.9rem; }
+    .careers-why-card p { font-size: 0.75rem; }
+    .careers-openings-header h2 { font-size: 1.3rem; }
+    .careers-opening-card { padding: 0.8rem; }
+    .careers-opening-card h3 { font-size: 0.85rem; }
+    .careers-opening-card p { font-size: 0.75rem; }
+    .careers-opening-stat-number { font-size: 1.3rem; }
+    .careers-process-header h2 { font-size: 1.3rem; }
+    .careers-process-step { padding: 1rem; }
+    .careers-process-step-number { font-size: 1.8rem; }
+    .careers-process-step-content h4 { font-size: 0.85rem; }
+    .careers-process-step-content p { font-size: 0.75rem; }
+    .careers-perks-header h2 { font-size: 1.3rem; }
+    .careers-perks-item { padding: 0.8rem; }
+    .careers-perks-info h4 { font-size: 0.8rem; }
+    .careers-perks-info p { font-size: 0.7rem; }
+    .careers-perks-icon { font-size: 1.8rem; width: 40px; height: 40px; }
+    .careers-perks-badge { font-size: 0.5rem; padding: 0.15rem 0.6rem; }
+    .careers-cta-card { padding: 1.25rem 0.8rem; }
+    .careers-cta-content h2 { font-size: 1.1rem; }
+    .careers-cta-content p { font-size: 0.75rem; }
+    .btn-glass-primary, .btn-glass-secondary { padding: 0.5rem 1rem; font-size: 0.75rem; }
+    .contact-hero-content h1 { font-size: 1.5rem; }
+    .contact-hero-desc { font-size: 0.8rem; }
+    .contact-hero-badge { font-size: 0.55rem; padding: 0.15rem 0.6rem; }
+    .btn-primary-contact, .btn-ghost-contact { padding: 0.5rem 1.2rem; font-size: 0.75rem; }
+    .contact-form-card { padding: 1rem; }
+    .contact-form-card h3 { font-size: 1rem; }
+    .contact-cta-card { padding: 1.25rem 0.8rem; }
+    .contact-cta-content h2 { font-size: 1.1rem; }
+    .contact-cta-content p { font-size: 0.75rem; }
+    .contact-cta-actions .btn-glass-primary,
+    .contact-cta-actions .btn-glass-secondary { padding: 0.5rem 1rem; font-size: 0.75rem; }
+    .contact-info-items { gap: 0.8rem; }
+    .contact-info-item { padding: 0.8rem; }
+    .contact-info-icon { width: 36px; height: 36px; font-size: 1.2rem; }
+    .contact-social { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+    .about-hero { padding: 50px 0.8rem 20px; }
+    .about-hero-content h1 { font-size: 1.5rem; }
+    .about-hero-content p { font-size: 0.8rem; }
+    .about-badge { font-size: 0.55rem; padding: 0.15rem 0.6rem; }
+    .btn-primary-hero, .btn-ghost-hero { padding: 0.5rem 1.2rem; font-size: 0.75rem; }
+    .about-stat-item .stat-number { font-size: 1.2rem; }
+    .about-stat-item .stat-label { font-size: 0.6rem; }
+    .pillar-card { padding: 1rem 0.8rem; }
+    .pillar-card h3 { font-size: 0.85rem; }
+    .pillar-card p { font-size: 0.75rem; }
+    .pillar-icon { font-size: 1.6rem; }
+    .tech-card { padding: 0.8rem; }
+    .tech-card h4 { font-size: 0.8rem; }
+    .tech-card p { font-size: 0.7rem; }
+    .team-card .team-info { padding: 0.8rem; }
+    .team-card .team-info h4 { font-size: 0.9rem; }
+    .team-title { font-size: 0.7rem; }
+    .team-desc { font-size: 0.7rem; }
+    .about-hero-image { aspect-ratio: 4/3; }
+    .building-overlay h2 { font-size: 1.1rem; }
+    .building-overlay p { font-size: 0.75rem; }
+    .conclusion-card { padding: 1.25rem 0.8rem; }
+    .conclusion-card h2 { font-size: 1.1rem; }
+    .conclusion-card p { font-size: 0.75rem; }
+    .conclusion-actions .btn-white,
+    .conclusion-actions .btn-outline-white { padding: 0.5rem 1rem; font-size: 0.75rem; }
+    .journey-dot { width: 30px; height: 30px; font-size: 0.55rem; }
+    .journey-year { font-size: 0.85rem; padding: 0.15rem 0.8rem; }
+    .journey-content { padding: 0.6rem 0.8rem; }
+    .journey-content h4 { font-size: 0.8rem; }
+    .journey-content p { font-size: 0.75rem; }
   }
 `;
