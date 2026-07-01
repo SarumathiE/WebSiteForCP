@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../components/Projects.css";
+import "../pages/Projects.css";
 
 export default function Projects() {
   useEffect(() => {

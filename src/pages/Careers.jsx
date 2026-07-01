@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "../components/Careers.css";
+import "../pages/Careers.css";
 
 export default function Careers() {
   useEffect(() => {
@@ -87,7 +87,7 @@ export default function Careers() {
             <div className="careers-hero-orb"></div>
             <div className="careers-hero-orb-2"></div>
             <div className="careers-hero-orb-3"></div>
-            <div className="careers-hero-stats-float">
+            {/* <div className="careers-hero-stats-float">
               <div className="careers-float-item">
                 <span className="careers-float-number">50+</span>
                 <span className="careers-float-label">Team Members</span>
@@ -100,7 +100,7 @@ export default function Careers() {
                 <span className="careers-float-number">98%</span>
                 <span className="careers-float-label">Satisfaction</span>
               </div>
-            </div>
+            </div> */}
             <div className="careers-hero-illustration">
               <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="200" cy="200" r="180" stroke="#7C3AED" strokeOpacity="0.1" strokeWidth="2"/>

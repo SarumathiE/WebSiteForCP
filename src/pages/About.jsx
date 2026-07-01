@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { PRIMARY_LIGHT } from "../styles/theme.js";
 import { IMAGES } from "../utils/images.js";
-import "../components/About.css";
+import "../pages/About.css";
 
 export default function AboutPage() {
   useEffect(() => {

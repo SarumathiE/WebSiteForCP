@@ -1,14 +1,14 @@
-/* ── CAREERS PAGE - UNIQUE STYLE ── */
+/* ── CAREERS PAGE - ENHANCED RESPONSIVE ── */
 
 /* ── HERO ── */
 .careers-hero {
-  
   display: flex;
   align-items: center;
-  padding: 80px 2rem 23px;
+  padding: 80px clamp(1.25rem, 4vw, 4rem) 23px;
   position: relative;
   overflow: hidden;
   background: var(--bg-dark);
+  
 }
 
 .careers-hero-bg {
@@ -22,18 +22,21 @@
 }
 
 .careers-hero-inner {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: clamp(2rem, 4vw, 5rem);
   align-items: center;
   width: 100%;
   position: relative;
   z-index: 1;
 }
 
-.careers-hero-content { max-width: 580px; }
+.careers-hero-content { 
+  max-width: 580px; 
+  width: 100%;
+}
 
 .careers-hero-badge {
   display: inline-flex;
@@ -65,7 +68,7 @@
 }
 
 .careers-hero-content h1 {
-  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-size: clamp(2rem, 4vw + 1rem, 4.6rem);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -90,7 +93,7 @@
 }
 
 .careers-hero-desc {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.2vw + 0.3rem, 1.1rem);
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 2rem;
@@ -112,7 +115,7 @@
   color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 0.9vw + 0.1rem, 0.9rem);
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -134,7 +137,7 @@
   color: var(--text-secondary);
   border: 1px solid var(--border);
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 0.9vw + 0.1rem, 0.9rem);
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -164,10 +167,11 @@
 .careers-hero-logos {
   display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .careers-hero-logos span {
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 0.9vw + 0.1rem, 0.85rem);
   font-weight: 600;
   color: var(--text-secondary);
   text-transform: none;
@@ -182,12 +186,13 @@
   justify-content: center;
   align-items: center;
   min-height: 450px;
+  width: 100%;
 }
 
 .careers-hero-orb {
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: clamp(200px, 30vw, 400px);
+  height: clamp(200px, 30vw, 400px);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%);
   animation: orbFloat 8s ease-in-out infinite;
@@ -198,8 +203,8 @@
 
 .careers-hero-orb-2 {
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: clamp(150px, 22vw, 300px);
+  height: clamp(150px, 22vw, 300px);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(6,182,212,0.04) 0%, transparent 70%);
   animation: orbFloat 10s ease-in-out infinite reverse;
@@ -209,8 +214,8 @@
 
 .careers-hero-orb-3 {
   position: absolute;
-  width: 220px;
-  height: 220px;
+  width: clamp(100px, 16vw, 220px);
+  height: clamp(100px, 16vw, 220px);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(124,58,237,0.04) 0%, transparent 70%);
   animation: orbFloat 6s ease-in-out infinite;
@@ -224,17 +229,12 @@
   66% { transform: translate(-10px, 10px) scale(0.95); }
 }
 
-/* Stats removed - hidden */
-.careers-hero-stats-float {
-  display: none;
-}
-
-/* ── TECH ILLUSTRATION WITH LOGOS ── */
+/* ── TECH ILLUSTRATION ── */
 .careers-hero-illustration {
   position: relative;
   z-index: 1;
-  width: 420px;
-  height: 420px;
+  width: clamp(200px, 32vw, 420px);
+  height: clamp(200px, 32vw, 420px);
   margin: 0 auto;
 }
 
@@ -252,7 +252,7 @@
 
 /* ── WHY JOIN US ── */
 .careers-why {
-  padding: 60px 2rem;
+  padding: clamp(40px, 6vw, 60px) clamp(1rem, 4vw, 4rem);
   background: var(--bg-card);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -260,7 +260,7 @@
 
 .careers-why-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .careers-why-label {
@@ -278,7 +278,7 @@
 }
 
 .careers-why-header h2 {
-  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
@@ -288,7 +288,7 @@
 }
 
 .careers-why-header p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.1vw + 0.1rem, 1rem);
   color: var(--text-secondary);
   max-width: 520px;
   margin: 0 auto;
@@ -297,8 +297,8 @@
 .careers-why-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  max-width: 1200px;
+  gap: clamp(1rem, 1.5vw, 1.5rem);
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -306,7 +306,7 @@
   background: var(--bg-card2);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 2rem;
+  padding: clamp(1.25rem, 2vw, 2rem);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -335,19 +335,19 @@
 }
 
 .careers-why-icon {
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
   margin-bottom: 0.75rem;
   display: block;
 }
 
 .careers-why-card h3 {
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 1.1vw + 0.1rem, 1.05rem);
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .careers-why-card p {
-  font-size: 0.85rem;
+  font-size: clamp(0.78rem, 0.9vw + 0.05rem, 0.85rem);
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -368,13 +368,13 @@
 
 /* ── OPENINGS ── */
 .careers-openings {
-  padding: 60px 2rem;
+  padding: clamp(40px, 6vw, 60px) clamp(1rem, 4vw, 4rem);
   background: var(--bg-dark);
 }
 
 .careers-openings-header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: clamp(2rem, 4vw, 2.5rem);
 }
 
 .careers-openings-label {
@@ -392,7 +392,7 @@
 }
 
 .careers-openings-header h2 {
-  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
@@ -402,7 +402,7 @@
 }
 
 .careers-openings-header p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.1vw + 0.1rem, 1rem);
   color: var(--text-secondary);
   max-width: 520px;
   margin: 0 auto;
@@ -411,7 +411,7 @@
 .careers-openings-stats {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: clamp(1.5rem, 4vw, 3rem);
   margin-bottom: 2.5rem;
   flex-wrap: wrap;
 }
@@ -422,7 +422,7 @@
 
 .careers-opening-stat-number {
   display: block;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
   color: var(--primary-light);
   line-height: 1;
@@ -430,7 +430,7 @@
 
 .careers-opening-stat-label {
   display: block;
-  font-size: 0.7rem;
+  font-size: clamp(0.6rem, 0.8vw, 0.7rem);
   color: var(--text-muted);
   margin-top: 0.3rem;
   text-transform: uppercase;
@@ -440,8 +440,8 @@
 .careers-openings-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  max-width: 1200px;
+  gap: clamp(1rem, 1.5vw, 1.5rem);
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -449,7 +449,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: clamp(1rem, 1.8vw, 1.5rem);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -466,10 +466,12 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .careers-opening-icon {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
 }
 
 .careers-opening-type {
@@ -483,7 +485,7 @@
 }
 
 .careers-opening-card h3 {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.1vw + 0.05rem, 1rem);
   font-weight: 600;
   margin-bottom: 0.4rem;
 }
@@ -510,7 +512,7 @@
 }
 
 .careers-opening-card p {
-  font-size: 0.85rem;
+  font-size: clamp(0.78rem, 0.9vw + 0.05rem, 0.85rem);
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -539,7 +541,7 @@
 
 /* ── PROCESS ── */
 .careers-process {
-  padding: 60px 2rem;
+  padding: clamp(40px, 6vw, 60px) clamp(1rem, 4vw, 4rem);
   background: var(--bg-card);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -547,7 +549,7 @@
 
 .careers-process-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .careers-process-label {
@@ -565,7 +567,7 @@
 }
 
 .careers-process-header h2 {
-  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
@@ -575,7 +577,7 @@
 }
 
 .careers-process-header p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.1vw + 0.1rem, 1rem);
   color: var(--text-secondary);
   max-width: 520px;
   margin: 0 auto;
@@ -584,8 +586,8 @@
 .careers-process-flow {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  max-width: 1200px;
+  gap: clamp(1rem, 1.5vw, 1.5rem);
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -593,7 +595,7 @@
   background: var(--bg-card2);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 2rem;
+  padding: clamp(1.25rem, 2vw, 2rem);
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
@@ -606,7 +608,7 @@
 }
 
 .careers-process-step-number {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 700;
   color: var(--primary-light);
   opacity: 0.15;
@@ -615,13 +617,13 @@
 }
 
 .careers-process-step-content h4 {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.1vw + 0.05rem, 1rem);
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .careers-process-step-content p {
-  font-size: 0.85rem;
+  font-size: clamp(0.78rem, 0.9vw + 0.05rem, 0.85rem);
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
@@ -629,7 +631,7 @@
 
 /* ── PERKS & BENEFITS ── */
 .careers-perks {
-  padding: 60px 2rem;
+  padding: clamp(40px, 6vw, 60px) clamp(1rem, 4vw, 4rem);
   background: var(--bg-dark);
   position: relative;
   overflow: hidden;
@@ -640,8 +642,8 @@
   position: absolute;
   top: -100px;
   right: -100px;
-  width: 400px;
-  height: 400px;
+  width: clamp(200px, 30vw, 400px);
+  height: clamp(200px, 30vw, 400px);
   background: radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%);
   pointer-events: none;
 }
@@ -651,15 +653,15 @@
   position: absolute;
   bottom: -100px;
   left: -100px;
-  width: 300px;
-  height: 300px;
+  width: clamp(150px, 20vw, 300px);
+  height: clamp(150px, 20vw, 300px);
   background: radial-gradient(circle, rgba(6,182,212,0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .careers-perks-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
   position: relative;
   z-index: 1;
 }
@@ -679,7 +681,7 @@
 }
 
 .careers-perks-header h2 {
-  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
   font-weight: 700;
 }
 
@@ -688,7 +690,7 @@
 }
 
 .careers-perks-header p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.1vw + 0.1rem, 1rem);
   color: var(--text-secondary);
   max-width: 520px;
   margin: 0 auto;
@@ -697,8 +699,8 @@
 .careers-perks-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.5rem;
-  max-width: 1200px;
+  gap: clamp(1rem, 1.5vw, 1.5rem);
+  max-width: 100%;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -711,7 +713,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 1.5rem 1.8rem;
+  padding: clamp(1rem, 1.8vw, 1.5rem) clamp(1rem, 2vw, 1.8rem);
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
@@ -815,10 +817,10 @@
 }
 
 .careers-perks-item .careers-perks-icon {
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
   flex-shrink: 0;
-  width: 50px;
-  height: 50px;
+  width: clamp(40px, 5vw, 50px);
+  height: clamp(40px, 5vw, 50px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -836,16 +838,17 @@
 
 .careers-perks-info {
   flex: 1;
+  min-width: 0;
 }
 
 .careers-perks-info h4 {
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1vw + 0.05rem, 0.95rem);
   font-weight: 600;
   margin-bottom: 0.2rem;
 }
 
 .careers-perks-info p {
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 0.8vw + 0.05rem, 0.8rem);
   color: var(--text-secondary);
   line-height: 1.5;
   margin: 0;
@@ -874,7 +877,7 @@
 
 /* ── CTA WITH GLASSMORPHISM ── */
 .careers-cta {
-  padding: 60px 2rem;
+  padding: clamp(40px, 6vw, 60px) clamp(1rem, 4vw, 4rem);
   background: var(--bg-dark);
   position: relative;
 }
@@ -884,7 +887,7 @@
   margin: 0 auto;
   position: relative;
   border-radius: var(--radius-xl);
-  padding: 4rem 3.5rem;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3.5rem);
   overflow: hidden;
   background: rgba(124, 58, 237, 0.08);
   border: 1px solid rgba(124, 58, 237, 0.15);
@@ -909,8 +912,8 @@
   position: absolute;
   top: -80px;
   right: -80px;
-  width: 350px;
-  height: 350px;
+  width: clamp(200px, 30vw, 350px);
+  height: clamp(200px, 30vw, 350px);
   background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
@@ -921,8 +924,8 @@
   position: absolute;
   bottom: -80px;
   left: -80px;
-  width: 250px;
-  height: 250px;
+  width: clamp(150px, 20vw, 250px);
+  height: clamp(150px, 20vw, 250px);
   background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
@@ -942,7 +945,7 @@
 
 .careers-cta-badge {
   display: inline-block;
-  font-size: 0.65rem;
+  font-size: clamp(0.6rem, 0.8vw + 0.05rem, 0.65rem);
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -955,7 +958,7 @@
 }
 
 .careers-cta-content h2 {
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(1.6rem, 4vw, 3rem);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1rem;
@@ -979,7 +982,7 @@
 }
 
 .careers-cta-content p {
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 1.2vw + 0.1rem, 1.05rem);
   color: var(--text-secondary);
   max-width: 480px;
   margin: 0 auto 2rem;
@@ -997,12 +1000,12 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.8rem 2rem;
+  padding: clamp(0.6rem, 1vw, 0.8rem) clamp(1.2rem, 2vw, 2rem);
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: #fff;
   border: none;
   border-radius: 10px;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 0.9vw + 0.05rem, 0.9rem);
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -1019,12 +1022,12 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.8rem 2rem;
+  padding: clamp(0.6rem, 1vw, 0.8rem) clamp(1.2rem, 2vw, 2rem);
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-secondary);
   border: 1px solid rgba(124, 58, 237, 0.2);
   border-radius: 10px;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 0.9vw + 0.05rem, 0.9rem);
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -1039,116 +1042,253 @@
   transform: translateY(-3px);
 }
 
-/* ── RESPONSIVE ── */
+/* ── ENHANCED RESPONSIVE BREAKPOINTS ── */
+
+/* Large Screens */
+@media (max-width: 1280px) {
+  .careers-hero { padding: 80px clamp(1.25rem, 4vw, 4rem) 23px; }
+  .careers-hero-inner { gap: 2.5rem; }
+  .careers-hero-content h1 { font-size: clamp(2.2rem, 4.2vw, 3.4rem); }
+  .careers-hero-illustration { width: clamp(280px, 32vw, 380px); height: clamp(280px, 32vw, 380px); }
+  .careers-why-grid, .careers-openings-grid, .careers-process-flow, .careers-perks-grid {
+    gap: 1.25rem;
+  }
+}
+
+/* Tablet Landscape */
 @media (max-width: 1200px) {
-  .careers-hero-illustration {
-    width: 380px;
-    height: 380px;
-  }
+  .careers-hero-illustration { width: clamp(250px, 30vw, 340px); height: clamp(250px, 30vw, 340px); }
+  .careers-hero-visual { min-height: 380px; }
 }
 
+/* Tablet */
 @media (max-width: 1024px) {
-  .careers-why-grid { grid-template-columns: 1fr 1fr; }
-  .careers-openings-grid { grid-template-columns: 1fr 1fr; }
-  .careers-process-flow { grid-template-columns: 1fr 1fr; }
-  .careers-perks-grid { grid-template-columns: 1fr 1fr; }
-  .careers-hero-illustration {
-    width: 340px;
-    height: 340px;
-  }
+  .careers-why-grid { grid-template-columns: repeat(2, 1fr); }
+  .careers-openings-grid { grid-template-columns: repeat(2, 1fr); }
+  .careers-process-flow { grid-template-columns: repeat(2, 1fr); }
+  .careers-perks-grid { grid-template-columns: repeat(2, 1fr); }
+  .careers-hero-illustration { width: clamp(240px, 28vw, 320px); height: clamp(240px, 28vw, 320px); }
+  .careers-hero-orb { width: clamp(180px, 25vw, 280px); height: clamp(180px, 25vw, 280px); }
+  .careers-hero-orb-2 { width: clamp(140px, 18vw, 200px); height: clamp(140px, 18vw, 200px); }
+  .careers-hero-orb-3 { width: clamp(100px, 14vw, 160px); height: clamp(100px, 14vw, 160px); }
 }
 
+/* Small Tablet */
 @media (max-width: 900px) {
   .careers-hero-inner {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+    text-align: center;
   }
-  .careers-hero-content { max-width: 100%; }
-  .careers-hero-visual { min-height: 350px; }
-  .careers-hero-illustration {
-    width: 320px;
-    height: 320px;
+  .careers-hero-content { 
+    max-width: 100%; 
+    text-align: center;
   }
-  .careers-hero-orb {
-    width: 300px;
-    height: 300px;
+  .careers-hero-actions {
+    justify-content: center;
   }
-  .careers-hero-orb-2 {
-    width: 200px;
-    height: 200px;
+  .careers-hero-trust {
+    justify-content: center;
   }
-  .careers-hero-orb-3 {
-    width: 150px;
-    height: 150px;
+  .careers-hero-logos {
+    justify-content: center;
   }
+  .careers-hero-visual { min-height: 320px; }
+  .careers-hero-illustration { width: clamp(200px, 30vw, 280px); height: clamp(200px, 30vw, 280px); }
+  .careers-hero-orb { width: clamp(160px, 22vw, 220px); height: clamp(160px, 22vw, 220px); }
+  .careers-hero-orb-2 { width: clamp(120px, 16vw, 160px); height: clamp(120px, 16vw, 160px); }
+  .careers-hero-orb-3 { width: clamp(80px, 12vw, 120px); height: clamp(80px, 12vw, 120px); }
 }
 
+/* Mobile Large */
 @media (max-width: 768px) {
-  .careers-why-grid { grid-template-columns: 1fr; }
-  .careers-openings-grid { grid-template-columns: 1fr; }
-  .careers-process-flow { grid-template-columns: 1fr; }
-  .careers-perks-grid { grid-template-columns: 1fr; }
+  .careers-why-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .careers-openings-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .careers-process-flow { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .careers-perks-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
   .careers-openings-stats { gap: 1.5rem; }
-  .careers-hero { padding: 80px 1.5rem 40px; }
-  .careers-hero-illustration {
-    width: 280px;
-    height: 280px;
-  }
+  .careers-hero { padding: 80px 1.5rem 40px; min-height: auto; }
+  .careers-hero-illustration { width: clamp(180px, 28vw, 240px); height: clamp(180px, 28vw, 240px); }
+  .careers-hero-visual { min-height: 280px; }
+  .careers-hero-orb { width: clamp(140px, 20vw, 180px); height: clamp(140px, 20vw, 180px); }
+  .careers-hero-orb-2 { width: clamp(100px, 14vw, 140px); height: clamp(100px, 14vw, 140px); }
+  .careers-hero-orb-3 { width: clamp(70px, 10vw, 100px); height: clamp(70px, 10vw, 100px); }
+  .careers-cta-card { padding: 2rem 1.5rem; }
+  .careers-perks-item { padding: 1rem 1.2rem; }
 }
 
+/* Mobile */
 @media (max-width: 600px) {
-  .careers-hero { padding: 70px 1rem 30px; }
-  .careers-hero-content h1 { font-size: 2rem; }
-  .careers-hero-desc { font-size: 0.95rem; }
-  .careers-hero-logos { flex-wrap: wrap; gap: 0.8rem; }
-  .careers-hero-illustration {
-    width: 240px;
-    height: 240px;
+  .careers-hero { padding: 60px 1rem 30px; }
+  .careers-hero-content h1 { font-size: clamp(1.6rem, 5vw, 2rem); }
+  .careers-hero-desc { font-size: clamp(0.85rem, 2.5vw, 0.95rem); }
+  .careers-hero-logos { gap: 0.8rem; }
+  .careers-hero-illustration { width: clamp(160px, 30vw, 200px); height: clamp(160px, 30vw, 200px); }
+  .careers-hero-orb { width: clamp(120px, 20vw, 160px); height: clamp(120px, 20vw, 160px); }
+  .careers-hero-orb-2 { width: clamp(80px, 14vw, 120px); height: clamp(80px, 14vw, 120px); }
+  .careers-hero-orb-3 { width: clamp(60px, 10vw, 80px); height: clamp(60px, 10vw, 80px); }
+  .careers-hero-visual { min-height: 240px; }
+  .careers-cta-card { padding: 1.5rem 1.25rem; }
+  .careers-cta-content h2 { font-size: clamp(1.2rem, 4vw, 1.6rem); }
+  .careers-cta-content p { font-size: clamp(0.8rem, 2.5vw, 0.9rem); }
+  .careers-cta-actions { flex-direction: column; align-items: center; width: 100%; }
+  .careers-cta-actions .btn-glass-primary,
+  .careers-cta-actions .btn-glass-secondary { 
+    width: 100%; 
+    justify-content: center;
   }
-  .careers-hero-orb {
-    width: 220px;
-    height: 220px;
+  .careers-why-card { padding: 1.25rem; }
+  .careers-opening-card { padding: 1rem; }
+  .careers-process-step { padding: 1.25rem; }
+  .careers-perks-item { 
+    flex-wrap: wrap;
+    padding: 1rem;
   }
-  .careers-hero-orb-2 {
-    width: 160px;
-    height: 160px;
+  .careers-perks-item .careers-perks-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.4rem;
   }
-  .careers-hero-orb-3 {
-    width: 120px;
-    height: 120px;
+  .careers-perks-badge {
+    font-size: 0.5rem;
+    padding: 0.15rem 0.5rem;
   }
-  .careers-cta-card { padding: 2rem 1.25rem; }
-  .careers-cta-content h2 { font-size: 1.4rem; }
-  .careers-cta-content p { font-size: 0.85rem; }
-  .careers-cta-actions { flex-direction: column; align-items: center; }
-  .careers-why-card { padding: 1.5rem; }
-  .careers-opening-card { padding: 1.25rem; }
 }
 
+/* Small Mobile */
 @media (max-width: 480px) {
-  .careers-hero { padding: 60px 0.8rem 20px; }
-  .careers-hero-content h1 { font-size: 1.6rem; }
-  .careers-hero-desc { font-size: 0.85rem; }
+  .careers-hero { padding: 50px 0.8rem 20px; }
+  .careers-hero-content h1 { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+  .careers-hero-desc { font-size: clamp(0.8rem, 2.5vw, 0.85rem); }
   .careers-hero-badge { font-size: 0.55rem; padding: 0.15rem 0.6rem; }
-  .btn-primary-careers, .btn-ghost-careers { padding: 0.5rem 1.2rem; font-size: 0.8rem; }
-  .careers-why-header h2 { font-size: 1.4rem; }
-  .careers-openings-header h2 { font-size: 1.4rem; }
-  .careers-process-header h2 { font-size: 1.4rem; }
-  .careers-perks-header h2 { font-size: 1.4rem; }
-  .careers-hero-illustration {
-    width: 200px;
-    height: 200px;
+  .btn-primary-careers, .btn-ghost-careers { 
+    padding: 0.5rem 1.2rem; 
+    font-size: clamp(0.7rem, 2vw, 0.8rem); 
   }
-  .careers-hero-orb {
-    width: 160px;
-    height: 160px;
+  .careers-hero-actions { gap: 0.7rem; }
+  .careers-hero-trust { flex-direction: column; align-items: center; gap: 0.8rem; }
+  .careers-hero-logos { justify-content: center; }
+  .careers-why-header h2 { font-size: clamp(1.2rem, 4vw, 1.4rem); }
+  .careers-openings-header h2 { font-size: clamp(1.2rem, 4vw, 1.4rem); }
+  .careers-process-header h2 { font-size: clamp(1.2rem, 4vw, 1.4rem); }
+  .careers-perks-header h2 { font-size: clamp(1.2rem, 4vw, 1.4rem); }
+  .careers-hero-illustration { 
+    width: clamp(140px, 30vw, 180px); 
+    height: clamp(140px, 30vw, 180px); 
   }
-  .careers-cta-card { padding: 1.5rem 1rem; }
-  .careers-cta-content h2 { font-size: 1.2rem; }
-  .careers-cta-content p { font-size: 0.8rem; }
-  .careers-cta-actions .btn-white,
-  .careers-cta-actions .btn-outline-white { padding: 0.5rem 1.2rem; font-size: 0.8rem; }
-  .careers-opening-stat-number { font-size: 1.5rem; }
-  .careers-process-step { padding: 1.5rem; }
-  .careers-process-step-number { font-size: 2rem; }
+  .careers-hero-orb { 
+    width: clamp(100px, 25vw, 140px); 
+    height: clamp(100px, 25vw, 140px); 
+  }
+  .careers-hero-visual { min-height: 200px; }
+  .careers-cta-card { padding: 1.2rem 0.8rem; }
+  .careers-cta-content h2 { font-size: clamp(1rem, 4vw, 1.2rem); }
+  .careers-cta-content p { font-size: clamp(0.75rem, 2.5vw, 0.8rem); }
+  .careers-cta-actions .btn-glass-primary,
+  .careers-cta-actions .btn-glass-secondary { 
+    padding: 0.5rem 1.2rem; 
+    font-size: clamp(0.7rem, 2vw, 0.8rem); 
+  }
+  .careers-opening-stat-number { font-size: clamp(1.2rem, 4vw, 1.5rem); }
+  .careers-process-step-number { font-size: clamp(1.5rem, 4vw, 2rem); }
+  .careers-process-step { padding: 1rem; }
+  .careers-why-card { padding: 1rem; }
+  .careers-opening-card { padding: 0.8rem; }
+  .careers-opening-card-top { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .careers-opening-meta { gap: 0.5rem; }
+  .careers-opening-apply { font-size: 0.8rem; }
+  .careers-perks-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  .careers-perks-item .careers-perks-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.6rem;
+  }
+  .careers-perks-info h4 { font-size: 0.9rem; }
+  .careers-perks-info p { font-size: 0.75rem; }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+  .careers-hero-content h1 { font-size: 1.1rem; }
+  .careers-hero-desc { font-size: 0.75rem; }
+  .careers-hero-illustration { width: 120px; height: 120px; }
+  .careers-hero-orb { width: 80px; height: 80px; }
+  .careers-hero-visual { min-height: 160px; }
+  .btn-primary-careers, .btn-ghost-careers { 
+    padding: 0.4rem 0.8rem; 
+    font-size: 0.7rem; 
+  }
+  .careers-why-header h2 { font-size: 1rem; }
+  .careers-openings-header h2 { font-size: 1rem; }
+  .careers-process-header h2 { font-size: 1rem; }
+  .careers-perks-header h2 { font-size: 1rem; }
+}
+
+/* ── UTILITY CLASSES FOR RESPONSIVE HIDING ── */
+@media (max-width: 600px) {
+  .hide-mobile { display: none !important; }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .hide-tablet { display: none !important; }
+}
+
+@media (min-width: 1025px) {
+  .hide-desktop { display: none !important; }
+}
+
+/* ── TOUCH DEVICE OPTIMIZATIONS ── */
+@media (hover: hover) {
+  .careers-why-card:hover,
+  .careers-opening-card:hover,
+  .careers-process-step:hover,
+  .careers-perks-item:hover {
+    transform: translateY(-6px);
+  }
+}
+
+@media (hover: none) {
+  .careers-why-card:active,
+  .careers-opening-card:active,
+  .careers-process-step:active,
+  .careers-perks-item:active {
+    transform: scale(0.98);
+  }
+  
+  .careers-why-card::before,
+  .careers-perks-item::after {
+    opacity: 0 !important;
+  }
+}
+
+/* ── REDUCED MOTION PREFERENCES ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .careers-hero-orb,
+  .careers-hero-orb-2,
+  .careers-hero-orb-3,
+  .careers-hero-illustration,
+  .careers-cta-glow,
+  .careers-cta-glow-2 {
+    animation: none !important;
+  }
+  
+  .careers-perks-item:hover,
+  .careers-why-card:hover,
+  .careers-opening-card:hover,
+  .careers-process-step:hover {
+    transform: none !important;
+    transition: none !important;
+  }
 }

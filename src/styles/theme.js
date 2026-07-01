@@ -88,7 +88,7 @@ export const getStyles = (isDark) => `
     left: 0; 
     right: 0; 
     z-index: 100;
-    padding: 0 2rem;
+    padding: 0 clamp(1.25rem, 4vw, 4rem);
     transition: all 0.3s ease;
     height: 72px;
   }
@@ -102,7 +102,7 @@ export const getStyles = (isDark) => `
   }
 
   .nav-inner {
-    max-width: 1200px; 
+    max-width: 100%;
     margin: 0 auto;
     display: flex; 
     align-items: center; 
@@ -285,7 +285,7 @@ export const getStyles = (isDark) => `
     
     display: flex; 
     align-items: center;
-    padding: 100px 2rem 80px;
+    padding: 100px clamp(1.25rem, 4vw, 4rem) 80px;
     position: relative; 
     overflow: hidden;
   }
@@ -313,11 +313,11 @@ export const getStyles = (isDark) => `
   }
 
   .hero-inner { 
-    max-width: 1200px; 
+    max-width: 100%;
     margin: 0 auto; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
-    gap: 4rem; 
+    gap: clamp(2rem, 4vw, 5rem); 
     align-items: center; 
     width: 100%; 
     position: relative;
@@ -355,7 +355,7 @@ export const getStyles = (isDark) => `
 
   .hero h1 { 
     font-family: 'Poppins', sans-serif; 
-    font-size: clamp(2.4rem, 5vw, 3.6rem); 
+    font-size: clamp(2.4rem, 3.5vw + 1.4rem, 4.2rem); 
     font-weight: 800; 
     line-height: 1.1; 
     letter-spacing: -0.03em; 
@@ -452,11 +452,11 @@ export const getStyles = (isDark) => `
 
   /* ── SECTION COMMON ── */
   .section { 
-    padding: 23px 2rem; 
+    padding: 23px clamp(1.25rem, 4vw, 4rem); 
   }
 
   .section-inner { 
-    max-width: 1200px; 
+    max-width: 100%;
     margin: 0 auto; 
   }
 
@@ -495,7 +495,7 @@ export const getStyles = (isDark) => `
 
   /* ── ABOUT PAGE STYLES ── */
   .about-hero {
-    padding: 100px 2rem 30px;
+    padding: 100px clamp(1.25rem, 4vw, 4rem) 30px;
     position: relative;
     overflow: hidden;
     background: var(--bg-dark);
@@ -513,11 +513,11 @@ export const getStyles = (isDark) => `
   }
 
   .about-hero-inner {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: clamp(2rem, 4vw, 5rem);
     align-items: center;
   }
 
@@ -552,7 +552,7 @@ export const getStyles = (isDark) => `
 
   .about-hero-content h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-size: clamp(2.8rem, 3.5vw + 1.6rem, 4.6rem);
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.03em;
@@ -646,7 +646,7 @@ export const getStyles = (isDark) => `
   }
 
   .about-intro {
-    padding: 60px 2rem;
+    padding: 60px clamp(1.25rem, 4vw, 4rem);
     background: var(--bg-card);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
@@ -655,8 +655,8 @@ export const getStyles = (isDark) => `
   .intro-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    max-width: 1200px;
+    gap: clamp(2rem, 4vw, 5rem);
+    max-width: 100%;
     margin: 0 auto;
     align-items: center;
   }
@@ -683,7 +683,7 @@ export const getStyles = (isDark) => `
   }
 
   .about-components {
-    padding: 80px 2rem;
+    padding: 80px clamp(1.25rem, 4vw, 4rem);
     background: var(--bg-dark);
   }
 
@@ -691,7 +691,7 @@ export const getStyles = (isDark) => `
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
   }
 
@@ -745,7 +745,7 @@ export const getStyles = (isDark) => `
   }
 
   .about-case-studies {
-    padding: 80px 2rem;
+    padding: 80px clamp(1.25rem, 4vw, 4rem);
     background: var(--bg-card);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
@@ -755,7 +755,7 @@ export const getStyles = (isDark) => `
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
   }
 
@@ -829,15 +829,15 @@ export const getStyles = (isDark) => `
   }
 
   .about-future {
-    padding: 80px 2rem;
+    padding: 80px clamp(1.25rem, 4vw, 4rem);
     background: var(--bg-dark);
   }
 
   .future-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    max-width: 1200px;
+    gap: clamp(2rem, 4vw, 5rem);
+    max-width: 100%;
     margin: 0 auto;
     align-items: center;
   }
@@ -1007,7 +1007,7 @@ export const getStyles = (isDark) => `
   }
 
   .about-importance {
-    padding: 60px 2rem;
+    padding: 60px clamp(1.25rem, 4vw, 4rem);
     background: var(--bg-card);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
@@ -1035,7 +1035,7 @@ export const getStyles = (isDark) => `
   .about-grid { 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
-    gap: 4rem; 
+    gap: clamp(2rem, 4vw, 5rem); 
     align-items: center; 
   }
 
@@ -1290,11 +1290,11 @@ export const getStyles = (isDark) => `
 
   /* ── CTA WITH GLASS EFFECT ── */
   .cta-section { 
-    padding: 23px 2rem; 
+    padding: 23px clamp(1.25rem, 4vw, 4rem); 
   }
 
   .cta-inner { 
-    max-width: 1200px; 
+    max-width: 100%;
     margin: 0 auto; 
   }
 
@@ -1432,11 +1432,11 @@ export const getStyles = (isDark) => `
   .footer {
     background: var(--bg-card);
     border-top: 1px solid var(--border);
-    padding: 2.5rem 2rem 2rem;
+    padding: 2.5rem clamp(1.25rem, 4vw, 4rem) 2rem;
   }
 
   .footer-inner {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
   }
 
@@ -1591,14 +1591,14 @@ export const getStyles = (isDark) => `
 
   /* ── CAREERS PAGE ── */
   .careers-section {
-    padding: 60px 2rem 80px;
+    padding: 60px clamp(1.25rem, 4vw, 4rem) 80px;
   }
 
   .careers-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
   }
 
@@ -1659,14 +1659,14 @@ export const getStyles = (isDark) => `
 
   /* ── CONTACT PAGE ── */
   .contact-section {
-    padding: 60px 2rem 80px;
+    padding: 60px clamp(1.25rem, 4vw, 4rem) 80px;
   }
 
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    max-width: 1200px;
+    gap: clamp(2rem, 4vw, 5rem);
+    max-width: 100%;
     margin: 0 auto;
   }
 
@@ -1751,6 +1751,98 @@ export const getStyles = (isDark) => `
     justify-content: center;
   }
 
+  @media (max-width: 1440px) {
+    .hero-inner, .section-inner, .nav-inner, .footer-inner {
+      max-width: 100%;
+    }
+    .hero-inner, .about-hero-inner, .intro-grid, .future-grid, .about-grid, .contact-grid {
+      gap: 3rem;
+    }
+  }
+
+  /* ── NEW: smooth tablet/laptop zone (901px – 1280px) ──
+     Fixes image + text feeling cramped/overflowing right around 1280px
+     by shrinking the gap and font sizes gradually instead of jumping
+     straight from 2-column desktop to 1-column mobile at 900px. */
+  @media (max-width: 1280px) {
+    .hero-inner, .section-inner, .nav-inner, .footer-inner {
+      max-width: 100%;
+      padding: 0 1.5rem;
+    }
+    .hero { padding: 100px 1.5rem 60px; }
+    .hero-inner {
+      gap: 2.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 4.2vw, 3rem);
+    }
+    .hero-desc {
+      font-size: 1rem;
+      max-width: 100%;
+    }
+    .hero-visual {
+      aspect-ratio: 4/3;
+    }
+    .about-hero { padding: 90px 1.5rem 30px; }
+    .about-hero-inner {
+      gap: 2.5rem;
+    }
+    .about-hero-content h1 {
+      font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+    }
+    .about-hero-content p {
+      max-width: 100%;
+    }
+    .about-stats { gap: 2rem; }
+    .stat-number { font-size: 1.7rem; }
+    .about-hero-image { aspect-ratio: 4/3; }
+    .intro-grid, .future-grid, .about-grid, .contact-grid {
+      gap: 2.5rem;
+    }
+    .components-grid, .case-grid, .comm-grid, .showcase-grid, .projects-grid, .careers-grid {
+      gap: 1.25rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    }
+    .section-sub {
+      font-size: 0.95rem;
+    }
+  }
+
+  /* Give text/image columns a touch more breathing room right before
+     they stack, and let the two-column areas stack a bit earlier than
+     900px on content-heavy sections so text never gets squeezed. */
+  @media (max-width: 1024px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      text-align: center;
+    }
+    .hero-desc { margin-left: auto; margin-right: auto; }
+    .hero-actions { justify-content: center; }
+    .hero-visual { max-width: 560px; margin: 0 auto; aspect-ratio: 16/9; }
+
+    .about-hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .about-hero-content p { margin-left: auto; margin-right: auto; }
+    .about-stats { justify-content: center; }
+    .about-hero-image { max-width: 560px; margin: 0 auto; aspect-ratio: 16/9; }
+
+    .intro-grid, .future-grid, .about-grid, .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+    .intro-image, .future-image, .about-image {
+      max-width: 560px;
+      margin: 0 auto;
+      aspect-ratio: 16/9;
+    }
+  }
+
   @media (max-width: 1024px) {
     .case-grid { grid-template-columns: 1fr 1fr; }
     .careers-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1827,7 +1919,7 @@ export const getStyles = (isDark) => `
   /* Large Screens (TV / 4K) */
   @media (min-width: 1921px) {
     .hero-inner, .section-inner, .nav-inner, .footer-inner {
-      max-width: 1600px;
+      max-width: 100%;
     }
     .hero h1 {
       font-size: 4.5rem;
@@ -1900,15 +1992,9 @@ export const getStyles = (isDark) => `
     }
   }
 
-  @media (max-width: 1440px) {
-    .hero-inner, .section-inner, .nav-inner, .footer-inner {
-      max-width: 1200px;
-    }
-  }
-
   @media (max-width: 1200px) {
     .hero-inner, .section-inner, .nav-inner, .footer-inner {
-      max-width: 1100px;
+      max-width: 100%;
       padding: 0 1.5rem;
     }
     .showcase-grid {

@@ -33,7 +33,7 @@
 .about-hero {
   display: flex;
   align-items: center;
-  padding: 80px 2rem 30px;
+  padding: 80px clamp(1.25rem, 4vw, 4rem) 30px;
   position: relative;
   overflow: hidden;
   background: var(--bg-dark);
@@ -49,11 +49,11 @@
 }
 
 .about-hero-inner {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: clamp(2rem, 4vw, 5rem);
   align-items: center;
   width: 100%;
   position: relative;
@@ -92,7 +92,7 @@
 }
 
 .about-hero-content h1 {
-  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-size: clamp(2.4rem, 3.2vw + 1.2rem, 4.4rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -361,7 +361,7 @@
 
 /* ── PILLARS ── */
 .about-pillars {
-  padding: 30px 2rem;
+  padding: 30px clamp(1.25rem, 4vw, 4rem);
   background: var(--bg-card);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -371,7 +371,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -411,7 +411,7 @@
 
 /* ── JOURNEY ── */
 .about-journey {
-  padding: 30px 2rem;
+  padding: 30px clamp(1.25rem, 4vw, 4rem);
   background: var(--bg-dark);
 }
 
@@ -510,7 +510,7 @@
 
 /* ── TEAM ── */
 .about-team {
-  padding: 30px 2rem;
+  padding: 30px clamp(1.25rem, 4vw, 4rem);
   background: var(--bg-card);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -520,7 +520,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -587,7 +587,7 @@
 
 /* ── TECHNOLOGIES ── */
 .about-technologies {
-  padding: 30px 2rem;
+  padding: 30px clamp(1.25rem, 4vw, 4rem);
   background: var(--bg-dark);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -603,7 +603,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 2rem auto 2rem;
 }
 
@@ -663,7 +663,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   align-items: center;
   background: var(--bg-card);
@@ -742,7 +742,7 @@
 
 /* ── CONCLUSION ── */
 .about-conclusion {
-  padding: 30px 2rem;
+  padding: 30px clamp(1.25rem, 4vw, 4rem);
 }
 
 .conclusion-card {
@@ -856,6 +856,14 @@
 }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 1280px) {
+  .about-hero { padding: 80px clamp(1.25rem, 4vw, 4rem) 30px; }
+  .about-hero-inner { gap: 2.5rem; }
+  .about-hero-content h1 { font-size: clamp(2.2rem, 4.2vw, 3.2rem); }
+  .pillars-grid, .team-grid, .tech-grid { gap: 1.25rem; }
+  .tech-showcase { gap: 2rem; padding: 1.75rem; }
+}
+
 @media (max-width: 1024px) {
   .pillars-grid { grid-template-columns: 1fr 1fr; }
   .team-grid { grid-template-columns: 1fr 1fr; }
