@@ -1,117 +1,127 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { api } from "../utils/api";
 import "../pages/Projects.css";
 
+// ── IMAGE URL HELPER ──
+const getImageUrl = (imagePath) => {
+  if (!imagePath) return '/images/default-project.jpg';
+  
+  // If it's already a full URL
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+    return imagePath;
+  }
+  
+  // If it's a data URL (base64)
+  if (imagePath.startsWith('data:')) {
+    return imagePath;
+  }
+  
+  // If it's a relative path from uploads
+  if (imagePath.startsWith('/uploads/')) {
+    return `http://localhost:5000${imagePath}`;
+  }
+  
+  if (imagePath.startsWith('uploads/')) {
+    return `http://localhost:5000/${imagePath}`;
+  }
+  
+  // If it's just a filename
+  if (!imagePath.includes('/')) {
+    return `http://localhost:5000/uploads/${imagePath}`;
+  }
+  
+  // If it's a relative path
+  return `http://localhost:5000/${imagePath}`;
+};
+
 export default function Projects() {
+  const [projects, setProjects] = useState([]);
+  const [featuredProjects, setFeaturedProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [categories, setCategories] = useState(['all']);
+
   useEffect(() => {
     document.querySelector('.projects-hero-content')?.classList.add('page-loaded');
+    fetchProjects();
   }, []);
 
-  // All 8 projects with correct IDs (1-8) matching dummyProjects
-  const allProjects = [
-    { 
-      id: 1, 
-      icon: "🏭", 
-      title: "Smart Factory Automation", 
-      desc: "End-to-end automation solution for a Fortune 500 manufacturing plant, increasing productivity by 45%.",
-      category: "Industrial Automation",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&h=400&fit=crop&crop=center"
-    },
-    { 
-      id: 2, 
-      icon: "🤖", 
-      title: "Predictive Maintenance AI", 
-      desc: "AI-powered predictive maintenance system that reduced equipment downtime by 60%.",
-      category: "AI & Machine Learning",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center"
-    },
-    { 
-      id: 3, 
-      icon: "☁️", 
-      title: "Enterprise Cloud Migration", 
-      desc: "Seamless migration of legacy systems to cloud infrastructure with zero downtime.",
-      category: "Cloud Solutions",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&crop=center"
-    },
-    { 
-      id: 4, 
-      icon: "📊", 
-      title: "AI Robotics Platform", 
-      desc: "Intelligent robotic systems for manufacturing and logistics operations.",
-      category: "AI & Machine Learning",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop&crop=center"
-    },
-    { 
-      id: 5, 
-      icon: "🔗", 
-      title: "Industrial IoT Platform", 
-      desc: "Connected device management and monitoring for smart industrial operations.",
-      category: "IoT & Edge",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&crop=center"
-    },
-    { 
-      id: 6, 
-      icon: "⚡", 
-      title: "Edge Computing Solution", 
-      desc: "Low-latency processing for real-time industrial applications.",
-      category: "IoT & Edge",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop&crop=center"
-    },
-    { 
-      id: 7, 
-      icon: "📱", 
-      title: "Mobile Field Operations", 
-      desc: "Cross-platform mobile solutions for field operations and remote asset management.",
-      category: "Mobile Solutions",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop&crop=center"
-    },
-    { 
-      id: 8, 
-      icon: "🔒", 
-      title: "Industrial Cybersecurity", 
-      desc: "Enterprise-grade security solutions for industrial control systems.",
-      category: "Cybersecurity",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop&crop=center"
+  const fetchProjects = async () => {
+    try {
+      setLoading(true);
+      const [allProjects, featured] = await Promise.all([
+        api.getProjects(),
+        api.getFeaturedProjects()
+      ]);
+      
+      // ✅ Ensure both are arrays
+      const projectsArray = Array.isArray(allProjects) ? allProjects : [];
+      const featuredArray = Array.isArray(featured) ? featured : [];
+      
+      // Process projects to ensure consistent field names
+      const processedProjects = projectsArray.map(p => ({
+        ...p,
+        id: p.ProjectID || p.id,
+        title: p.Title || p.title || '',
+        category: p.Category || p.category || '',
+        description: p.Description || p.description || '',
+        client: p.Client || p.client || '',
+        imageUrl: p.ImageUrl || p.imageUrl || '',
+        results: p.Results || p.results || '',
+        technologies: p.Technologies || p.technologies || ''
+      }));
+      
+      const processedFeatured = featuredArray.map(p => ({
+        ...p,
+        id: p.ProjectID || p.id,
+        title: p.Title || p.title || '',
+        category: p.Category || p.category || '',
+        description: p.Description || p.description || '',
+        client: p.Client || p.client || '',
+        imageUrl: p.ImageUrl || p.imageUrl || '',
+        results: p.Results || p.results || '',
+        technologies: p.Technologies || p.technologies || ''
+      }));
+      
+      setProjects(processedProjects);
+      setFeaturedProjects(processedFeatured.length > 0 ? processedFeatured : processedProjects.slice(0, 3));
+      
+      // Extract unique categories
+      const uniqueCategories = ['all', ...new Set(processedProjects.map(p => p.category).filter(Boolean))];
+      setCategories(uniqueCategories);
+      
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+      setLoading(false);
     }
-  ];
+  };
 
-  // Featured Projects (IDs 1, 2, 3)
-  const featuredProjects = [
-    {
-      id: 1,
-      category: "Industrial Automation",
-      title: "Smart Factory Automation",
-      desc: "End-to-end automation solution for a Fortune 500 manufacturing plant, increasing productivity by 45%.",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&h=400&fit=crop&crop=center",
-      tags: ["PLC", "IoT", "Edge Computing"],
-      results: "45% Productivity Increase",
-      icon: "🏭"
-    },
-    {
-      id: 2,
-      category: "AI & Machine Learning",
-      title: "Predictive Maintenance AI",
-      desc: "AI-powered predictive maintenance system that reduced equipment downtime by 60%.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center",
-      tags: ["AI", "ML", "Analytics"],
-      results: "60% Downtime Reduction",
-      icon: "🤖"
-    },
-    {
-      id: 3,
-      category: "Cloud Solutions",
-      title: "Enterprise Cloud Migration",
-      desc: "Seamless migration of legacy systems to cloud infrastructure with zero downtime.",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&crop=center",
-      tags: ["AWS", "Azure", "DevOps"],
-      results: "99.99% Uptime",
-      icon: "☁️"
-    }
-  ];
+  // Filter projects by category
+  const filteredProjects = selectedCategory === 'all'
+    ? projects
+    : projects.filter(p => p.category === selectedCategory);
+
+  // Hero Stats
+  const stats = {
+    total: projects.length,
+    clients: new Set(projects.map(p => p.client).filter(Boolean)).size,
+    categories: new Set(projects.map(p => p.category).filter(Boolean)).size
+  };
+
+  if (loading) {
+    return (
+      <div className="projects-loading">
+        <div className="loading-spinner"></div>
+        <p>Loading projects...</p>
+      </div>
+    );
+  }
 
   return (
     <>
-      {/* Hero Section with Background Image */}
+      {/* ── Hero Section ── */}
       <section className="projects-hero">
         <div className="projects-hero-bg"></div>
         <div className="projects-hero-overlay"></div>
@@ -130,63 +140,67 @@ export default function Projects() {
             </p>
             <div className="projects-hero-stats">
               <div className="projects-hero-stat">
-                <span className="projects-stat-number">500+</span>
-                <span className="projects-stat-label">Projects Delivered</span>
+                <span className="projects-stat-number">{stats.total}+</span>
+                <span className="projects-stat-label">Projects</span>
               </div>
               <div className="projects-hero-stat">
-                <span className="projects-stat-number">98%</span>
-                <span className="projects-stat-label">Success Rate</span>
-              </div>
-              <div className="projects-hero-stat">
-                <span className="projects-stat-number">50+</span>
+                <span className="projects-stat-number">{stats.clients}+</span>
                 <span className="projects-stat-label">Happy Clients</span>
+              </div>
+              <div className="projects-hero-stat">
+                <span className="projects-stat-number">{stats.categories}</span>
+                <span className="projects-stat-label">Categories</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Counter Section */}
+      {/* ── Stats Counter Section ── */}
       <section className="projects-stats-counter">
         <div className="section-inner">
           <div className="projects-counter-grid">
             <div className="projects-counter-item">
-              <span className="projects-counter-number">15+</span>
-              <span className="projects-counter-label">Countries Served</span>
+              <span className="projects-counter-number">{projects.length}</span>
+              <span className="projects-counter-label">Total Projects</span>
             </div>
             <div className="projects-counter-item">
-              <span className="projects-counter-number">200+</span>
-              <span className="projects-counter-label">Team Members</span>
+              <span className="projects-counter-number">{featuredProjects.length}</span>
+              <span className="projects-counter-label">Featured Projects</span>
             </div>
             <div className="projects-counter-item">
-              <span className="projects-counter-number">10+</span>
-              <span className="projects-counter-label">Years of Innovation</span>
+              <span className="projects-counter-number">{new Set(projects.map(p => p.category).filter(Boolean)).size}</span>
+              <span className="projects-counter-label">Categories</span>
             </div>
             <div className="projects-counter-item">
-              <span className="projects-counter-number">100%</span>
-              <span className="projects-counter-label">Client Retention</span>
+              <span className="projects-counter-number">{new Set(projects.map(p => p.client).filter(Boolean)).size}+</span>
+              <span className="projects-counter-label">Clients</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Project Categories / Tabs */}
+      {/* ── Project Categories / Tabs ── */}
       <section className="projects-categories">
         <div className="section-inner">
           <div className="projects-categories-header">
             <span className="projects-categories-label">Browse By Category</span>
             <div className="projects-tabs">
-              <button className="projects-tab active">All</button>
-              <button className="projects-tab">Industrial Automation</button>
-              <button className="projects-tab">AI & Machine Learning</button>
-              <button className="projects-tab">Cloud Solutions</button>
-              <button className="projects-tab">IoT & Edge</button>
+              {categories.map(cat => (
+                <button
+                  key={cat}
+                  className={`projects-tab ${selectedCategory === cat ? 'active' : ''}`}
+                  onClick={() => setSelectedCategory(cat)}
+                >
+                  {cat === 'all' ? 'All' : cat}
+                </button>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Projects */}
+      {/* ── Featured Projects ── */}
       <section className="projects-featured">
         <div className="section-inner">
           <div className="projects-featured-header">
@@ -196,38 +210,67 @@ export default function Projects() {
           </div>
 
           <div className="projects-featured-grid">
-            {featuredProjects.map((project, i) => (
-              <div key={project.id} className={`projects-featured-card animate-card-${i + 1}`}>
-                <div className="projects-featured-image">
-                  <img src={project.image} alt={project.title} />
-                  <span className="projects-featured-category">{project.category}</span>
-                  <div className="projects-featured-image-overlay">
-                    <span className="projects-featured-icon">{project.icon}</span>
+            {featuredProjects.slice(0, 3).map((project, i) => {
+              const imageUrl = getImageUrl(project.imageUrl);
+              console.log(`🖼️ Featured Project ${i+1}:`, { 
+                title: project.title, 
+                imageUrl: project.imageUrl,
+                fullUrl: imageUrl
+              });
+              
+              return (
+                <div key={project.id || i} className={`projects-featured-card animate-card-${i + 1}`}>
+                  <div className="projects-featured-image">
+                    <img 
+                      src={imageUrl} 
+                      alt={project.title || 'Project'} 
+                      onError={(e) => {
+                        console.error(`Failed to load image: ${imageUrl}`);
+                        e.target.onerror = null;
+                        e.target.src = '/images/default-project.jpg';
+                      }}
+                    />
+                    <span className="projects-featured-category">{project.category || 'Project'}</span>
+                    <div className="projects-featured-image-overlay">
+                      <span className="projects-featured-icon">📁</span>
+                    </div>
+                  </div>
+                  <div className="projects-featured-body">
+                    <h3>{project.title || 'Untitled'}</h3>
+                    <p>{project.description ? project.description.substring(0, 100) + '...' : 'No description available.'}</p>
+                    <div className="projects-featured-tags">
+                      {project.technologies ? 
+                        (typeof project.technologies === 'string' 
+                          ? project.technologies.split(',').slice(0, 3) 
+                          : project.technologies.slice(0, 3)
+                        ).map((tag) => (
+                          <span key={tag} className="projects-featured-tag">{tag.trim()}</span>
+                        )) : 
+                        <span className="projects-featured-tag">Technology</span>
+                      }
+                    </div>
+                    <div className="projects-featured-result">
+                      <span>📊</span>
+                      <span>{project.results || 'Completed'}</span>
+                    </div>
+                    <Link to={`/projects/${project.id}`} className="projects-featured-link">
+                      View Project →
+                    </Link>
                   </div>
                 </div>
-                <div className="projects-featured-body">
-                  <h3>{project.title}</h3>
-                  <p>{project.desc}</p>
-                  <div className="projects-featured-tags">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="projects-featured-tag">{tag}</span>
-                    ))}
-                  </div>
-                  <div className="projects-featured-result">
-                    <span>📊</span>
-                    <span>{project.results}</span>
-                  </div>
-                  <Link to={`/projects/${project.id}`} className="projects-featured-link">
-                    View Project →
-                  </Link>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
+
+          {featuredProjects.length === 0 && (
+            <div className="no-featured">
+              <p>No featured projects available.</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* All Projects Grid - 8 Projects */}
+      {/* ── All Projects Grid ── */}
       <section className="projects-grid-section">
         <div className="section-inner">
           <div className="projects-grid-header">
@@ -237,29 +280,46 @@ export default function Projects() {
           </div>
 
           <div className="projects-grid-all">
-            {allProjects.map((project, i) => (
-              <div key={project.id} className={`projects-grid-card animate-card-${(i % 4) + 1}`}>
-                <div className="projects-grid-image">
-                  <img src={project.image} alt={project.title} />
-                  <div className="projects-grid-overlay">
-                    <span className="projects-grid-icon">{project.icon}</span>
+            {filteredProjects.map((project, i) => {
+              const imageUrl = getImageUrl(project.imageUrl);
+              
+              return (
+                <div key={project.id || i} className={`projects-grid-card animate-card-${(i % 4) + 1}`}>
+                  <div className="projects-grid-image">
+                    <img 
+                      src={imageUrl} 
+                      alt={project.title || 'Project'} 
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = '/images/default-project.jpg';
+                      }}
+                    />
+                    <div className="projects-grid-overlay">
+                      <span className="projects-grid-icon">📁</span>
+                    </div>
+                  </div>
+                  <div className="projects-grid-body">
+                    <span className="projects-grid-category">{project.category || 'General'}</span>
+                    <h3>{project.title || 'Untitled'}</h3>
+                    <p>{project.description ? project.description.substring(0, 80) + '...' : 'No description available.'}</p>
+                    <Link to={`/projects/${project.id}`} className="projects-grid-link">
+                      Learn More →
+                    </Link>
                   </div>
                 </div>
-                <div className="projects-grid-body">
-                  <span className="projects-grid-category">{project.category}</span>
-                  <h3>{project.title}</h3>
-                  <p>{project.desc}</p>
-                  <Link to={`/projects/${project.id}`} className="projects-grid-link">
-                    Learn More →
-                  </Link>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
+
+          {filteredProjects.length === 0 && (
+            <div className="no-projects">
+              <p>{selectedCategory === 'all' ? 'No projects available.' : `No projects found in "${selectedCategory}" category.`}</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Case Studies */}
+      {/* ── Case Studies ── */}
       <section className="projects-case-studies">
         <div className="section-inner">
           <div className="projects-case-header">
@@ -315,7 +375,7 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Industry Solutions */}
+      {/* ── Industry Solutions ── */}
       <section className="projects-industry">
         <div className="section-inner">
           <div className="projects-industry-header">
@@ -369,7 +429,7 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* ── Testimonials ── */}
       <section className="projects-testimonials">
         <div className="section-inner">
           <div className="projects-testimonials-header">
@@ -427,7 +487,6 @@ export default function Projects() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

@@ -1,6 +1,39 @@
+import { useState } from "react";
+import { api } from "../utils/api";
 import "../pages/Contact.css";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      await api.submitContact(formData);
+      setSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setLoading(false);
+    } catch (err) {
+      setError('Failed to send message. Please try again.');
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -98,32 +131,69 @@ export default function Contact() {
             <div className="contact-form-wrapper">
               <div className="contact-form-card">
                 <h3>Send Us a Message</h3>
-                <form className="contact-form">
-                  <div className="contact-form-row">
-                    <div className="contact-form-group">
-                      <label>Your Name</label>
-                      <input type="text" placeholder="John Doe" />
+                
+                {submitted ? (
+                  <div className="success-message">
+                    <h4>✅ Message Sent!</h4>
+                    <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                  </div>
+                ) : (
+                  <form className="contact-form" onSubmit={handleSubmit}>
+                    {error && <div className="error-message">{error}</div>}
+                    
+                    <div className="contact-form-row">
+                      <div className="contact-form-group">
+                        <label>Your Name *</label>
+                        <input 
+                          type="text" 
+                          name="name"
+                          placeholder="John Doe" 
+                          value={formData.name}
+                          onChange={handleChange}
+                          required 
+                        />
+                      </div>
+                      <div className="contact-form-group">
+                        <label>Your Email *</label>
+                        <input 
+                          type="email" 
+                          name="email"
+                          placeholder="john@example.com" 
+                          value={formData.email}
+                          onChange={handleChange}
+                          required 
+                        />
+                      </div>
                     </div>
                     <div className="contact-form-group">
-                      <label>Your Email</label>
-                      <input type="email" placeholder="john@example.com" />
+                      <label>Subject</label>
+                      <input 
+                        type="text" 
+                        name="subject"
+                        placeholder="How can we help you?" 
+                        value={formData.subject}
+                        onChange={handleChange}
+                      />
                     </div>
-                  </div>
-                  <div className="contact-form-group">
-                    <label>Subject</label>
-                    <input type="text" placeholder="How can we help you?" />
-                  </div>
-                  <div className="contact-form-group">
-                    <label>Message</label>
-                    <textarea rows="5" placeholder="Tell us about your project..."></textarea>
-                  </div>
-                  <button type="submit" className="btn-submit">
-                    <span>Send Message</span>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                    </svg>
-                  </button>
-                </form>
+                    <div className="contact-form-group">
+                      <label>Message *</label>
+                      <textarea 
+                        rows="5" 
+                        name="message"
+                        placeholder="Tell us about your project..." 
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                      ></textarea>
+                    </div>
+                    <button type="submit" className="btn-submit" disabled={loading}>
+                      <span>{loading ? 'Sending...' : 'Send Message'}</span>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                      </svg>
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
           </div>
